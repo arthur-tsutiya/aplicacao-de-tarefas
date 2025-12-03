@@ -1,0 +1,12 @@
+h1 {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+a:any-link {
+    text-decoration: none;
+    color: inherit;
+}

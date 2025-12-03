@@ -1,0 +1,25 @@
+.page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 2em;
+
+    background-color: #efefef;
+}
+
+.page-nav {
+    margin-left: auto;
+}
+
+.page-nav .nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    list-style: none;
+}
+
+.page-nav .nav-links li {
+    margin: 0 1em;
+}
+
