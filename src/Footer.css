@@ -1,0 +1,11 @@
+.page-footer {
+    background-color: #efefef;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 1em 2em;
+}
+
+.footer-link:hover, .footer-link:focus {
+    text-decoration: underline;
+}
