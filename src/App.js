@@ -10,13 +10,11 @@ function App() {
   return (
     <BrowserRouter>
       <Header/>
-      <main className="main-page container">
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/tasks" element={<Tasks/>}/>
           <Route path="*" element={<p>404 not found</p>}/>
         </Routes>
-      </main>
       <Footer/>
     </BrowserRouter>
   );
