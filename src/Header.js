@@ -5,7 +5,7 @@ export default function Header() {
 
     return (
         <header className="page-header">
-            <Link to="/">
+            <Link to="/" className="page-header-logo-link">
                 <svg
                 className="page-header-logo"
                 height="27.459629"
