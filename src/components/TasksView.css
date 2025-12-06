@@ -1,0 +1,8 @@
+.tasks-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tasks-view {
+    background-color: #eaeaea;
+}
