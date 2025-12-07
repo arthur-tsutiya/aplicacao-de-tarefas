@@ -1,6 +1,6 @@
 import './Task.css';
 
-export default function Task({task, onTaskToggle}) {
+export default function Task({task, onTaskToggle, onEditClick}) {
 
     let taskClassName = "";
     if (task.done) {
@@ -11,6 +11,7 @@ export default function Task({task, onTaskToggle}) {
         <li className="task card">
             <button onClick={() => onTaskToggle(task.id)}>done</button>
             <p className={taskClassName}>{task.description}</p>
+            <button onClick={() => onEditClick(task.id)}>Edit</button>
         </li>
     );
 }
