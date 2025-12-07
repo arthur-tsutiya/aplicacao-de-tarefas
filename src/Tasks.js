@@ -13,6 +13,8 @@ const initialTasks = [
     {id: 7, description: 'Buy new books', done: true}
 ]
 
+let nextTaskId = 8;
+
 export default function Tasks() {
     const [tasks, setTasks] = useState(initialTasks);
 
@@ -49,10 +51,14 @@ export default function Tasks() {
         }))
     }
 
+    function addTask(newTask) {
+        setTasks([...tasks, {...newTask, id: nextTaskId++}]);
+    }
+
     return (
     <main className="main-page tasks-wrapper">
         <TasksSidebar/>
-        <TasksView tasks={tasks} onTaskToggle={toggleTask} onTaskChange={editTask} onTaskDelete={removeTask}/>
+        <TasksView tasks={tasks} onTaskToggle={toggleTask} onTaskChange={editTask} onTaskDelete={removeTask} onTaskAdd={addTask}/>
     </main>
     );
 }

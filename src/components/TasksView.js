@@ -1,10 +1,12 @@
 import './TasksView.css';
 import Task from './Task.js';
 import TaskEdit from './TaskEdit.js';
+import TaskNew from './TaskNew.js';
 import { useState } from 'react';
 
-export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDelete}) {
+export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDelete, onTaskAdd}) {
     const [editedTaskId, setEditedTaskId] = useState(null);
+    const [newTask, setNewTask] = useState(false);
 
     function editTask(id) {
       setEditedTaskId(id);
@@ -14,15 +16,23 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
       setEditedTaskId(null);
     }
 
+    function createTask() {
+      setNewTask(true);
+    }
+
+    function finishCreatingTask() {
+      setNewTask(false);
+    }
+
     return (
       <section className="tasks-view">
+        {newTask === true ? <TaskNew onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} /> : <button className="task card card-btn" onClick={createTask}>Add task</button>}
         <ul className="tasks-list">
-            {tasks.map(task => {
+            {tasks.toReversed().map(task => {
                 if (editedTaskId === task.id) return <TaskEdit task={task} onTaskChange={onTaskChange} onTaskEditEnd={finishEditTask}/>;
                 return <Task key={task.id} task={task} onTaskToggle={onTaskToggle} onEditClick={editTask} onTaskDelete={onTaskDelete}/>;
             })}
         </ul>
-        <button>Add task</button>
       </section>
     );
 }

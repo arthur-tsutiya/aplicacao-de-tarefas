@@ -5,4 +5,27 @@
 
 .tasks-view {
     background-color: #eaeaea;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.card-btn {
+    border: none;
+    cursor: pointer;
+    transition: background-color 125ms;
+}
+
+.card-btn:hover {
+    background-color: #eee;
+}
+
+.card-btn:active {
+    background-color: #dedede;
 }
