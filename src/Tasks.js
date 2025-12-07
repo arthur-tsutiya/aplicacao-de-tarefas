@@ -39,10 +39,20 @@ export default function Tasks() {
         }));
     }
 
+    function removeTask(id) {
+        setTasks(tasks.filter(task => {
+            if (task.id === id) {
+                return false;
+            }
+
+            return true;
+        }))
+    }
+
     return (
     <main className="main-page tasks-wrapper">
         <TasksSidebar/>
-        <TasksView tasks={tasks} onTaskToggle={toggleTask} onTaskChange={editTask}/>
+        <TasksView tasks={tasks} onTaskToggle={toggleTask} onTaskChange={editTask} onTaskDelete={removeTask}/>
     </main>
     );
 }

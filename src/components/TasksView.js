@@ -3,7 +3,7 @@ import Task from './Task.js';
 import TaskEdit from './TaskEdit.js';
 import { useState } from 'react';
 
-export default function TasksView({tasks, onTaskToggle, onTaskChange}) {
+export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDelete}) {
     const [editedTaskId, setEditedTaskId] = useState(null);
 
     function editTask(id) {
@@ -19,7 +19,7 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange}) {
         <ul className="tasks-list">
             {tasks.map(task => {
                 if (editedTaskId === task.id) return <TaskEdit task={task} onTaskChange={onTaskChange} onTaskEditEnd={finishEditTask}/>;
-                return <Task key={task.id} task={task} onTaskToggle={onTaskToggle} onEditClick={editTask}/>;
+                return <Task key={task.id} task={task} onTaskToggle={onTaskToggle} onEditClick={editTask} onTaskDelete={onTaskDelete}/>;
             })}
         </ul>
         <button>Add task</button>
