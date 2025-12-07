@@ -22,7 +22,6 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange}) {
                 return <Task key={task.id} task={task} onTaskToggle={onTaskToggle} onEditClick={editTask}/>;
             })}
         </ul>
-        <TaskEdit task={{id: 9, description: 'text', done: false}}/>
         <button>Add task</button>
       </section>
     );
