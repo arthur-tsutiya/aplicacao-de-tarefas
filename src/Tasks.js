@@ -4,13 +4,13 @@ import './Tasks.css';
 import { useState } from 'react';
 
 const initialTasks = [
-    {id: 1, description: 'Buy milk', done: false},
-    {id: 2, description: 'Clean the fridge', done: false},
-    {id: 3, description: 'Fix sleeping schedule', done: true},
-    {id: 4, description: 'Take out the trash', done: false},
-    {id: 5, description: 'Call mom', done: false},
-    {id: 6, description: 'Set up appointment', done: false},
-    {id: 7, description: 'Buy new books', done: true}
+    {id: 1, title: 'Buy milk', done: false, important: false},
+    {id: 2, title: 'Clean the fridge', done: false, important: false},
+    {id: 3, title: 'Fix sleeping schedule', done: true, important: false},
+    {id: 4, title: 'Take out the trash', done: false, important: false},
+    {id: 5, title: 'Call mom', done: false, important: false},
+    {id: 6, title: 'Set up appointment', done: false, important: false},
+    {id: 7, title: 'Buy new books', done: true, important: false}
 ]
 
 let nextTaskId = 8;
@@ -27,6 +27,19 @@ export default function Tasks() {
             return {
                 ...task,
                 done: !task.done
+            };
+        }));
+    }
+
+    function toggleTaskImportance(id) {
+            setTasks(tasks.map(task => {
+            if (task.id !== id) {
+                return task;
+            }
+
+            return {
+                ...task,
+                important: !task.important
             };
         }));
     }
@@ -58,7 +71,8 @@ export default function Tasks() {
     return (
     <main className="main-page tasks-wrapper">
         <TasksSidebar/>
-        <TasksView tasks={tasks} onTaskToggle={toggleTask} onTaskChange={editTask} onTaskDelete={removeTask} onTaskAdd={addTask}/>
+        <TasksView tasks={tasks} onTaskToggle={toggleTask} onTaskChange={editTask} onTaskDelete={removeTask} onTaskAdd={addTask}
+        onTaskImportanceToggle={toggleTaskImportance}/>
     </main>
     );
 }

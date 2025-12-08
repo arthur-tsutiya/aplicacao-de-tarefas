@@ -1,11 +1,11 @@
 import './TaskEdit.css';
 import { useState } from 'react';
 
-export default function TaskEdit({task, onTaskChange, onTaskEditEnd}) {
-    const [taskTitle, setTaskTitle] = useState(task.description);
+export default function TaskEdit({task, onTaskChange, onTaskEditEnd, onTaskImportanceToggle}) {
+    const [taskTitle, setTaskTitle] = useState(task.title);
     const [errorMessage, setErrorMessage] = useState(null);
 
-    let newTask = {...task, description: taskTitle};
+    let newTask = {...task, title: taskTitle};
 
     function saveChanges() {
         if (taskTitle === "") {
@@ -26,7 +26,7 @@ export default function TaskEdit({task, onTaskChange, onTaskEditEnd}) {
         <li className="task card task-edit">
             <label>
                 Title
-                <input type="text" value={taskTitle} onChange={e => setTaskTitle(e.target.value)}/>
+                <input name="task-title" type="text" value={taskTitle} onChange={e => setTaskTitle(e.target.value)}/>
                 {errorMessage && <p className="title-error-message">{errorMessage}</p>}
                 <div className="task-edit-buttons">
                     <button onClick={saveChanges}>Save changes</button>

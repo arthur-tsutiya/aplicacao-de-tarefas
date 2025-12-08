@@ -17,9 +17,13 @@
     flex: 1 1 auto;
 }
 
-.done-task {
+.task-done .task-title {
     text-decoration: line-through;
     color: var(--font-color-lighter);
+}
+
+.task-important .task-title {
+    color: orange;
 }
 
 .task-buttons {

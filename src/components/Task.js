@@ -1,20 +1,23 @@
 import './Task.css';
 
-export default function Task({task, onTaskToggle, onEditClick, onTaskDelete}) {
+export default function Task({task, onTaskToggle, onEditClick, onTaskDelete, onTaskImportanceToggle}) {
 
-    let taskClassName = "task-title";
+    let taskClassName = "task card";
     if (task.done) {
-        taskClassName += " done-task";
+        taskClassName += " task-done";
+    }
+    if (task.important) {
+        taskClassName += " task-important";
     }
 
     return (
-        <li className="task card">
+        <li className={taskClassName}>
             <button onClick={() => onTaskToggle(task.id)}>done</button>
-            <p className={taskClassName}>{task.description}</p>
+            <p className="task-title">{task.title}</p>
             <div className="task-buttons">
                 <button onClick={() => onEditClick(task.id)}>Edit</button>
                 <button onClick={() => onTaskDelete(task.id)}>Delete</button>
-                <button className="btn-important-task" onClick={() => {}}>Favorite</button>
+                <button className="btn-important-task" onClick={() => onTaskImportanceToggle(task.id)}>Favorite</button>
             </div>
         </li>
     );

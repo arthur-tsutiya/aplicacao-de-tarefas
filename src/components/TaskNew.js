@@ -8,8 +8,9 @@ export default function TaskNew({onTaskAdd, onFinishedTaskAdd}) {
 
     let newTask = {
         id: null,
-        description: title,
-        done: false
+        title: title,
+        done: false,
+        important: false,
     }
 
     function createTask() {
@@ -33,7 +34,7 @@ export default function TaskNew({onTaskAdd, onFinishedTaskAdd}) {
         <div className="task card task-edit">
             <label>
                 Title
-                <input type="text" value={title} onChange={e => setTitle(e.target.value)}/>
+                <input name="task-name" type="text" value={title} onChange={e => setTitle(e.target.value)}/>
                 {errorMessage && <p className="title-error-message">{errorMessage}</p>}
                 <div className="task-edit-buttons">
                     <button onClick={createTask}>Create Task</button>
