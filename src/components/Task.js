@@ -13,14 +13,14 @@ export default function Task({task, onTaskToggle, onEditClick, onTaskDelete, onT
 
     return (
         <li className={taskClassName}>
-            <button onClick={() => onTaskToggle(task.id)}>done</button>
+            <CheckmarkButton onClick={() => onTaskToggle(task.id)} checked={task.done}/>
             <p className="task-title">{task.title}</p>
             <div className="task-buttons">
                 <button onClick={() => onEditClick(task.id)}>Edit</button>
                 <button onClick={() => onTaskDelete(task.id)}>Delete</button>
                 <button className="btn-important-task" onClick={() => onTaskImportanceToggle(task.id)}>Favorite</button>
             </div>
-            <CheckmarkButton checked="true"/>
+            
         </li>
     );
 }

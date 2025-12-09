@@ -1,6 +1,6 @@
 import './CheckmarkButton.css';
 
-export default function CheckmarkButton({ checked }) {
+export default function CheckmarkButton({ onClick, checked }) {
 
     let className = "checkmark-btn center";
 
@@ -9,7 +9,7 @@ export default function CheckmarkButton({ checked }) {
     }
     
     return (
-        <button className={className}>
+        <button className={className} onClick={onClick}>
             <svg
             viewBox="0 0 72 51"
             xmlns="http://www.w3.org/2000/svg">

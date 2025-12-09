@@ -1,10 +1,13 @@
 .checkmark-btn {
-    border: .125em solid #333;
+    border: .125em solid var(--font-color-lighter);
     width: 1.75em;
     aspect-ratio: 1/1;
     font-size: initial;
     border-radius: 50%;
     background-color: #00000000;
+    cursor: pointer;
+
+    transition: all .15s;
 }
 
 .checkmark-btn:hover {
