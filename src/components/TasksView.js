@@ -20,7 +20,7 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
       if (task.important) {
         importantTasks.push(element);
       } else {
-        regularTasks.push(<Task key={task.id} task={task} onTaskToggle={onTaskToggle} onEditClick={editTask} onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle}/>);
+        regularTasks.push(element);
       }
     }); 
 

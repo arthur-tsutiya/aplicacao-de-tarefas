@@ -2,6 +2,9 @@
     --font-color-1: #343434;
     --font-color-light: #565656;
     --font-color-lighter: #878787;
+    --green-pastel-1: #5ea36a;
+    --green-pastel-2: #499657;
+    --green-pastel-3: #348844;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -31,6 +34,17 @@ p, ul, li {
 
 button {
     margin: 0;
+    border: 0;
     font: inherit;
     font-size: .75em;
+}
+
+.btn-medium {
+    padding: .5em .1em;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

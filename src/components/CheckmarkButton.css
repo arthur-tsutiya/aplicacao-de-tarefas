@@ -1,0 +1,39 @@
+.checkmark-btn {
+    border: .125em solid #333;
+    width: 1.75em;
+    aspect-ratio: 1/1;
+    font-size: initial;
+    border-radius: 50%;
+    background-color: #00000000;
+}
+
+.checkmark-btn:hover {
+    background-color: #00000011;
+}
+
+.checkmark-btn:active {
+    background-color: #00000022;
+}
+
+.checkmark-btn .checkmark {
+    fill: #00000000;
+}
+
+.checkmark-btn.checked {
+    background-color: var(--green-pastel-1);
+    border-color: var(--green-pastel-1);
+}
+
+.checkmark-btn:hover.checked {
+    background-color: var(--green-pastel-2);
+    border-color: var(--green-pastel-2);
+}
+
+.checkmark-btn:active.checked {
+    background-color: var(--green-pastel-3);
+    border-color: var(--green-pastel-3);
+}
+
+.checkmark-btn.checked .checkmark {
+    fill: #fff;
+}

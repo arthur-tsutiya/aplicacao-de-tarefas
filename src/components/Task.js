@@ -1,4 +1,5 @@
 import './Task.css';
+import CheckmarkButton from './CheckmarkButton.js';
 
 export default function Task({task, onTaskToggle, onEditClick, onTaskDelete, onTaskImportanceToggle}) {
 
@@ -19,6 +20,7 @@ export default function Task({task, onTaskToggle, onEditClick, onTaskDelete, onT
                 <button onClick={() => onTaskDelete(task.id)}>Delete</button>
                 <button className="btn-important-task" onClick={() => onTaskImportanceToggle(task.id)}>Favorite</button>
             </div>
+            <CheckmarkButton checked="true"/>
         </li>
     );
 }
