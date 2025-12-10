@@ -2,7 +2,7 @@ import './CheckmarkButton.css';
 
 export default function CheckmarkButton({ onClick, checked }) {
 
-    let className = "checkmark-btn center";
+    let className = "btn checkmark-btn center";
 
     if (checked) {
         className += " checked";

@@ -4,10 +4,13 @@
     aspect-ratio: 1/1;
     font-size: initial;
     border-radius: 50%;
-    background-color: #00000000;
-    cursor: pointer;
 
     transition: all .15s;
+}
+
+.checkmark-btn svg {
+    height: 60%;
+    width: 60%;
 }
 
 .checkmark-btn:hover {

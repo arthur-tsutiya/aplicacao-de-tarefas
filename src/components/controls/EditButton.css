@@ -1,0 +1,14 @@
+.btn-edit {
+    width: 2em;
+    aspect-ratio: 1/1;
+
+}
+
+.btn-edit svg {
+    height: 80%;
+    width: 80%;
+}
+
+.btn-edit path {
+    fill: var(--font-color-light-3)
+}

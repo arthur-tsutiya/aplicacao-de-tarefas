@@ -34,11 +34,14 @@ p, ul, li {
     margin: 0;
 }
 
-button {
+.btn {
     margin: 0;
     border: 0;
+    padding: 0;
     font: inherit;
     font-size: .75em;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .btn-medium {

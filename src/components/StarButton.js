@@ -2,7 +2,7 @@ import './StarButton.css';
 
 export default function StarButton({ onClick, toggled}) {
 
-    let className = "btn-star center";
+    let className = "btn btn-star center";
     if (toggled) {
         className += " btn-star-toggled";
     }
