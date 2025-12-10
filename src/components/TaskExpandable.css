@@ -1,0 +1,34 @@
+.task-expandable {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+}
+
+.task-expandable-visible {
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 2em;
+}
+
+.task-expandable-hidden {
+    grid-row: 2/3;
+    
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows .25s ease-in-out, opacity .25s ease-in-out;
+}
+
+.task-expandable.expanded .task-expandable-hidden {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.task-expandable-hidden-content {
+    overflow: hidden;
+}
+
+.task-expandable-hidden-content p {
+    min-height: 200px;
+}

@@ -22,9 +22,7 @@ export default function Task({task, onTaskToggle, onEditClick, onTaskDelete, onT
                 <EditButton onClick={() => onEditClick(task.id)}/>
                 <DeleteButton onClick={() => onTaskDelete(task.id)} />
                 <StarButton onClick={() => onTaskImportanceToggle(task.id)} toggled={task.important}/>
-                
             </div>
-            
         </li>
         
     );
