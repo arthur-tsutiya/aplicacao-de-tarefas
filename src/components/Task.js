@@ -2,6 +2,7 @@ import './Task.css';
 import CheckmarkButton from './CheckmarkButton.js';
 import StarButton from './StarButton.js';
 import EditButton from './controls/EditButton.js';
+import DeleteButton from './controls/DeleteButton.js';
 
 export default function Task({task, onTaskToggle, onEditClick, onTaskDelete, onTaskImportanceToggle}) {
 
@@ -19,8 +20,9 @@ export default function Task({task, onTaskToggle, onEditClick, onTaskDelete, onT
             <p className="task-title">{task.title}</p>
             <div className="task-buttons">
                 <EditButton onClick={() => onEditClick(task.id)}/>
-                <button onClick={() => onTaskDelete(task.id)}>Delete</button>
+                <DeleteButton onClick={() => onTaskDelete(task.id)} />
                 <StarButton onClick={() => onTaskImportanceToggle(task.id)} toggled={task.important}/>
+                
             </div>
             
         </li>

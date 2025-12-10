@@ -1,0 +1,14 @@
+
+.btn-delete {
+    width: 2.5em;
+    aspect-ratio: 1/1;
+}
+
+.btn-delete svg {
+    width: 70%;
+    height: 70%;
+}
+
+.btn-delete path {
+    fill: var(--font-color-light-3);
+}
