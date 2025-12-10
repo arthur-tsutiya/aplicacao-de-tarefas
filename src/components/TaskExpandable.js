@@ -26,9 +26,11 @@ export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskD
 
     return (
         <li className={taskClassName}>
-            <div className="task-expandable-visible">
+            <div className="task-expandable-visible center">
                 <CheckmarkButton onClick={() => {}} checked={task.done}/>
-                <button className="btn" onClick={() => setExpanded(c => !c)}><p className="task-title">{task.title}</p></button>
+                <button className="btn btn-task" onClick={() => setExpanded(c => !c)}>
+                    <p className="task-title center">{task.title}</p>
+                </button>
                 <div className="task-buttons">
                     <EditButton onClick={() => onEditClick(task.id)}/>
                     <DeleteButton onClick={() => onTaskDelete(task.id)} />
