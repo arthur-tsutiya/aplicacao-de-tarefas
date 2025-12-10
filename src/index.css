@@ -2,9 +2,11 @@
     --font-color-1: #343434;
     --font-color-light: #565656;
     --font-color-lighter: #878787;
-    --green-pastel-1: #5ea36a;
-    --green-pastel-2: #499657;
-    --green-pastel-3: #348844;
+    --font-color-light-3: #a1a1a1;
+    --font-color-light-4: #b1b1b1;
+    --green-pastel-1: #7ab483;
+    --green-pastel-2: #67aa71;
+    --green-pastel-3: #519b5c;
 }
 
 h1,h2,h3,h4,h5,h6 {

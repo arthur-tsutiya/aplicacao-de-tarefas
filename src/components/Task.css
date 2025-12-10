@@ -21,11 +21,11 @@
     text-decoration: line-through;
     color: var(--font-color-lighter);
 }
-
+/*
 .task-important .task-title {
     color: orange;
 }
-
+*/
 .task-buttons {
     flex: 0 0 auto;
     display: flex;

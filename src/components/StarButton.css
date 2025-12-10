@@ -1,0 +1,46 @@
+.btn-star {
+    width: 1.667em;
+    aspect-ratio: 1/1;
+    font-size: initial;
+    cursor: pointer;
+    background-color: #00000000;
+    padding: 0;
+}   
+
+.btn-star-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-star-path {
+    fill: transparent;
+    stroke: var(--font-color-light-3);
+    stroke-width: .5em;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all .15s;
+}
+
+.btn-star:hover .btn-star-path {
+    fill: #00000011;
+}
+
+.btn-star:active .btn-star-path {
+    fill: #00000022;
+}
+
+.btn-star.btn-star-toggled .btn-star-path {
+    fill: #f3e48f;
+    stroke: #f3e48f;
+}
+
+.btn-star:hover.btn-star-toggled .btn-star-path {
+    fill: #f3e282;
+    stroke: #f3e282;
+}
+
+.btn-star:active.btn-star-toggled .btn-star-path {
+    fill: #f1de72;
+    stroke: #f1de72;
+}
+

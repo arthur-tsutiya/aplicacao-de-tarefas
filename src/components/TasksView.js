@@ -7,14 +7,14 @@ import { useState } from 'react';
 export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDelete, onTaskAdd, onTaskImportanceToggle}) {
     const [editedTaskId, setEditedTaskId] = useState(null);
     const [newTask, setNewTask] = useState(false);
-
+/*
     const importantTasks = [];
     const regularTasks = [];
     tasks.forEach(task => {
 
         let element = <Task key={task.id} task={task} onTaskToggle={onTaskToggle} onEditClick={editTask} onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle}/>;
         if (task.id === editedTaskId) {
-          element = <TaskEdit task={task} onTaskChange={onTaskChange} onTaskEditEnd={finishEditTask} onTaskImportanceToggle={onTaskImportanceToggle}/>;
+          element = <TaskEdit key={task.id} task={task} onTaskChange={onTaskChange} onTaskEditEnd={finishEditTask} onTaskImportanceToggle={onTaskImportanceToggle}/>;
         }
 
       if (task.important) {
@@ -22,7 +22,7 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
       } else {
         regularTasks.push(element);
       }
-    }); 
+    }); */
 
     function editTask(id) {
       setEditedTaskId(id);
@@ -44,8 +44,14 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
       <section className="tasks-view">
         {newTask === true ? <TaskNew onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} /> : <button className="task card card-btn" onClick={createTask}>Add task</button>}
         <ul className="tasks-list">
-            {importantTasks}
-            {regularTasks}
+            {
+              tasks.toReversed().map(task => {
+                if (task.id === editedTaskId) {
+                  return <TaskEdit key={task.id} task={task} onTaskChange={onTaskChange} onTaskEditEnd={finishEditTask} onTaskImportanceToggle={onTaskImportanceToggle}/>;
+                }
+                return <Task key={task.id} task={task} onTaskToggle={onTaskToggle} onEditClick={editTask} onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle}/>;
+              })
+            }
         </ul>
       </section>
     );
