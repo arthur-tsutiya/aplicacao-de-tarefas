@@ -15,7 +15,7 @@ export default function Task({task, onTaskToggle, onEditClick, onTaskDelete, onT
     }
 
     return (
-        <li className={taskClassName}>
+        <li tab-index="1" className={taskClassName}>
             <CheckmarkButton onClick={() => onTaskToggle(task.id)} checked={task.done}/>
             <p className="task-title">{task.title}</p>
             <div className="task-buttons">

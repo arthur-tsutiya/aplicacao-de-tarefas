@@ -15,7 +15,7 @@
     stroke-width: .5em;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: all .15s;
+    transition: all .15s, transform .25s;
 }
 
 .btn-star:hover .btn-star-path {
@@ -24,6 +24,7 @@
 
 .btn-star:active .btn-star-path {
     fill: #00000022;
+    transform: scale(.9) translateX(5%) translateY(5%);
 }
 
 .btn-star.btn-star-toggled .btn-star-path {

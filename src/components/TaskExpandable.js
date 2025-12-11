@@ -8,26 +8,23 @@ import { useState} from 'react';
 export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskDelete, onTaskImportanceToggle}) {
     const [expanded, setExpanded] = useState(false);
 
-
     let taskClassName = "task-expandable card";
-    /*
+    
     if (task.done) {
         taskClassName += " task-done";
     }
     if (task.important) {
         taskClassName += " task-important";
     }
-        */
     if (expanded) {
         taskClassName += " expanded";
     }
 
 
-
     return (
         <li className={taskClassName}>
             <div className="task-expandable-visible center">
-                <CheckmarkButton onClick={() => {}} checked={task.done}/>
+                <CheckmarkButton onClick={() => onTaskToggle(task.id)} checked={task.done}/>
                 <button className="btn btn-task" onClick={() => setExpanded(c => !c)}>
                     <p className="task-title center">{task.title}</p>
                 </button>
