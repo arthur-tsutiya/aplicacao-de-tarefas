@@ -8,7 +8,6 @@ import { useState} from 'react';
 export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskDelete, onTaskImportanceToggle,
     onTaskSelection, onTaskSelectionEnd, expanded
 }) {
-    /*const [expanded, setExpanded] = useState(false);*/
 
     let taskClassName = "task-expandable card";
     
@@ -18,7 +17,7 @@ export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskD
     if (task.important) {
         taskClassName += " task-important";
     }
-    if (expanded === 'true') {
+    if (expanded) {
         taskClassName += " expanded";
     }
 

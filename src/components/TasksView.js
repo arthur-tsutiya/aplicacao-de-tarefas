@@ -39,13 +39,11 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
     }
 */
 
-    function createTask() {
-      /*setNewTask(true);*/
+    function startCreatingTask() {
       setStatus({action: 'create'});
     }
 
     function finishCreatingTask() {
-      /*setNewTask(false);*/
       setStatus({});
     }
 
@@ -59,14 +57,16 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
 
     return (
       <section className="tasks-view">
-        {status.action === 'create' ? <TaskNew onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} /> : <button className="task card card-btn" onClick={createTask}>Add task</button>}
+        {status.action === "create" ? 
+        <TaskNew onTaskAddBegin={startCreatingTask} onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} expanded/> : 
+        <TaskNew onTaskAddBegin={startCreatingTask} onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} />}
         <ul className="tasks-list">
             {
               tasks.toReversed().map(task => {
                 if (status.action === "expand" && task.id === status.id) {
                   return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
                     onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 
-                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} expanded="true"/>;
+                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} expanded/>;
                 }
                 return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
                     onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 

@@ -1,5 +1,67 @@
-
 .title-error-message {
     color: red;
     font-size: 0.75em;
+}
+
+.task-new-icon {
+    width: 2em;
+    aspect-ratio: 1/1;
+    grid-column: 1/2;
+}
+
+.task-new-icon svg {
+    width: 60%;
+    height: 60%;
+    fill: var(--font-color-lighter);
+}
+
+.task-new {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+}
+
+.task-new.expanded {
+    box-shadow: 0px 4px 6px 0px #00000011, 0px 0px 4px 0px #1975ff55;
+}
+
+.task-new:hover {
+    background-color: #f4f4f4;
+
+    transition: background-color .25s;
+}
+
+.task-new-visible {
+    grid-row: 1/2;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 2em;
+}
+
+.task-new-btn {
+    grid-column: 2/3;
+}
+
+.task-new-hidden {
+    grid-row: 2/3;
+
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    padding-block: 0;
+    padding-inline: 1em;
+
+    transition: padding-block .25s, grid-template-rows .25s, opacity .5s;
+}
+
+.task-new-hidden-content {
+    overflow: hidden;
+}
+
+.task-new.expanded .task-new-hidden{
+    grid-template-rows: 1fr;
+    opacity: 1;
+    padding-block: 1em;
 }
