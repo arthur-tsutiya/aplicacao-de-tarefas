@@ -5,8 +5,10 @@ import EditButton from './controls/EditButton.js';
 import DeleteButton from './controls/DeleteButton.js';
 import { useState} from 'react';
 
-export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskDelete, onTaskImportanceToggle}) {
-    const [expanded, setExpanded] = useState(false);
+export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskDelete, onTaskImportanceToggle,
+    onTaskSelection, onTaskSelectionEnd, expanded
+}) {
+    /*const [expanded, setExpanded] = useState(false);*/
 
     let taskClassName = "task-expandable card";
     
@@ -16,8 +18,16 @@ export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskD
     if (task.important) {
         taskClassName += " task-important";
     }
-    if (expanded) {
+    if (expanded === 'true') {
         taskClassName += " expanded";
+    }
+
+    function toggleExpand() {
+        if (expanded) {
+            onTaskSelectionEnd(task.id);
+        } else {
+            onTaskSelection(task.id);
+        }
     }
 
 
@@ -25,11 +35,10 @@ export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskD
         <li className={taskClassName}>
             <div className="task-expandable-visible center">
                 <CheckmarkButton onClick={() => onTaskToggle(task.id)} checked={task.done}/>
-                <button className="btn btn-task" onClick={() => setExpanded(c => !c)}>
+                <button className="btn btn-task" onClick={toggleExpand}>
                     <p className="task-title center">{task.title}</p>
                 </button>
                 <div className="task-buttons">
-                    <EditButton onClick={() => onEditClick(task.id)}/>
                     <DeleteButton onClick={() => onTaskDelete(task.id)} />
                     <StarButton onClick={() => onTaskImportanceToggle(task.id)} toggled={task.important}/>
                 </div>

@@ -6,8 +6,8 @@ import TaskExpandable from './TaskExpandable.js';
 import { useState } from 'react';
 
 export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDelete, onTaskAdd, onTaskImportanceToggle}) {
-    const [editedTaskId, setEditedTaskId] = useState(null);
-    const [newTask, setNewTask] = useState(false);
+    /*const [editedTaskId, setEditedTaskId] = useState(null);*/
+    /*const [newTask, setNewTask] = useState(false);*/
     const [status, setStatus] = useState({});
 /*
     const importantTasks = [];
@@ -26,39 +26,51 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
       }
     }); */
 
+/*
     function editTask(id) {
       setEditedTaskId(id);
-      /*setStatus({action: 'editing', id: id});*/
+      setStatus({action: 'editing', id: id});
     }
-
+*/
+/*
     function finishEditTask() {
       setEditedTaskId(null);
-      /*setStatus({});*/
+      setStatus({});
     }
+*/
 
     function createTask() {
-      setNewTask(true);
-      /*setStatus({action: 'creating'});*/
+      /*setNewTask(true);*/
+      setStatus({action: 'create'});
     }
 
     function finishCreatingTask() {
-      setNewTask(false);
-      /*setStatus({});*/
+      /*setNewTask(false);*/
+      setStatus({});
+    }
+
+    function expandTask(id) {
+      setStatus({action: 'expand', id: id});
+    }
+
+    function collapseTask(id) {
+      setStatus({});
     }
 
     return (
       <section className="tasks-view">
-        {status.action === 'creating' ? <TaskNew onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} /> : <button className="task card card-btn" onClick={createTask}>Add task</button>}
+        {status.action === 'create' ? <TaskNew onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} /> : <button className="task card card-btn" onClick={createTask}>Add task</button>}
         <ul className="tasks-list">
             {
               tasks.toReversed().map(task => {
-                if (status.action === "editing" && task.id === status.id) {
-                  return <TaskEdit key={task.id} task={task} onTaskChange={onTaskChange} onTaskEditEnd={finishEditTask} onTaskImportanceToggle={onTaskImportanceToggle}/>;
-                 /* return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
-                    onEditClick={editTask} onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 
-                    onTaskSelection={} onTaskSelectionEnd={} expanded="true"/>;*/
+                if (status.action === "expand" && task.id === status.id) {
+                  return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
+                    onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 
+                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} expanded="true"/>;
                 }
-                return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} onEditClick={editTask} onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle}/>;
+                return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
+                    onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 
+                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask}/>;
               })
             }
         </ul>

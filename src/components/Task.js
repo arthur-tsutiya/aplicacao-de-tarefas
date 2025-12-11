@@ -19,7 +19,6 @@ export default function Task({task, onTaskToggle, onEditClick, onTaskDelete, onT
             <CheckmarkButton onClick={() => onTaskToggle(task.id)} checked={task.done}/>
             <p className="task-title">{task.title}</p>
             <div className="task-buttons">
-                <EditButton onClick={() => onEditClick(task.id)}/>
                 <DeleteButton onClick={() => onTaskDelete(task.id)} />
                 <StarButton onClick={() => onTaskImportanceToggle(task.id)} toggled={task.important}/>
             </div>

@@ -27,7 +27,6 @@ export default function TaskNew({onTaskAdd, onFinishedTaskAdd}) {
     function cancelCreateTask() {
         setErrorMessage(null);
         onFinishedTaskAdd();
-        
     }
 
     return (
