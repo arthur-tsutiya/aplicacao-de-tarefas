@@ -8,13 +8,20 @@
     /*box-shadow: 0 0 .2em 0 #00000033;*/
     transition: box-shadow .25s, background-color .25s;
     /*border-radius: .25em;*/
-    padding: .4em .75em;
+    padding: .4em .3em;
+}
+
+.text-input:hover {
+    border-bottom: 2px solid #1975ff22;
 }
 
 .text-input:focus, .text-input:focus-visible {
     border: 0;
     outline: 0;
-    /*background-color: #fff;*/
-    /*box-shadow: 0 0 .2em 0 #1975ff55;*/
-    border-bottom: 2px solid #1975ff33;
+    border-bottom: 2px solid #1975ff44;
+}
+
+input::placeholder {
+    font-style: italic;
+    font-size: .9em;
 }

@@ -26,8 +26,8 @@ export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, e
         } 
         setErrorMessage(null);
         onTaskAdd(newTask);
-        onFinishedTaskAdd();
-       
+        setTitle("");
+        /*onFinishedTaskAdd();*/
     }
 
     function cancelCreateTask() {
@@ -57,7 +57,7 @@ export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, e
             </div>
             <div className="task-new-hidden">
                 <div className="task-new-hidden-content">
-                    <TaskFields/>
+                    <TaskFields title={title} setTitle={setTitle} onTaskCreate={createTask} expanded={expanded}/>
                 </div>
             </div>
         </div>

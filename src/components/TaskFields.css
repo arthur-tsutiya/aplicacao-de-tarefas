@@ -2,23 +2,23 @@
 .task-form {
     grid-column: span 3;
     column-gap: inherit;
-    row-gap: .25em;
+    row-gap: .5em;
 
     display: grid;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(4, auto);
     grid-template-columns: subgrid;
 
-    
+
 }
 
-.task-fieldset {
+.task-field {
     grid-column: span 3;
 
     display: grid;
     grid-template-columns: subgrid;
 }
 
-.task-fieldset {
+.task-field {
     border-top: 1px solid #00000011;
     padding: 1em 0;
 }
@@ -42,14 +42,7 @@
     height: 80%;
 }
 
-.icon-title > svg {
-    width: 55%;
-    height: 55%;
-}
-
 .icon-title {
-    font-size: 1.3em;
-    font-style: bold;
     color: var(--font-color-light-3);
 }
 
@@ -75,10 +68,19 @@
     transition: color .25s;
 }
 
-.task-fieldset:hover svg, .task-fieldset:active svg {
+.task-field:hover svg, .task-field:active svg {
     fill: var(--primary-color-1);
 }
 
-.task-fieldset:hover .task-field-label-text, .task-fieldset:active .task-field-label-text {
+.task-field:hover .task-field-label-text, .task-field:active .task-field-label-text {
     color: var(--primary-color-1);
+}
+
+.task-form-controls {
+    grid-column: span 3;
+    grid-row: 4/5;
+    padding-bottom: .5em;
+
+    display: flex;
+    flex-direction: row-reverse;
 }

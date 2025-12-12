@@ -36,6 +36,9 @@ Idea3:
     --green-pastel-3: #519b5c;
 
     --primary-color-1: #7692ff;
+    --primary-color-2: #5a76e9;
+    --primary-color-3: #4967df;
+    --primary-color-4: #3c5ad6;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -74,8 +77,30 @@ p, ul, li {
     cursor: pointer;
 }
 
-.btn-medium {
-    padding: .5em .1em;
+.btn-primary {
+    border-radius: .4em;
+    background-color: var(--primary-color-4);
+    padding: .5em .75em;
+    color: #fff;
+    font-size: .9em;
+    box-shadow: 0px .2em 0px 0px #00000033;
+
+    transition: all .15s;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-3);
+}
+
+.btn-primary:active {
+    background-color: var(--primary-color-2);
+    transform: translateY(.125em);
+    box-shadow: 0px 0px 0px 0px var(--dark-grey-a);
+}
+
+.btn-primary:disabled {
+    background-color: #aeaeae;
+    color: #333;
 }
 
 .center {
@@ -97,5 +122,9 @@ fieldset {
 .author-note {
     font-style: italic;
     font-size: .9em;
+}
+
+label:not(.wip) {
+    cursor: pointer;
 }
 

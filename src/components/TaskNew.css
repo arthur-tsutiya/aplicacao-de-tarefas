@@ -4,6 +4,8 @@
     grid-template-columns: 2em 1fr 2em;
     column-gap: 1.5em;
     padding: 0 1.5em;
+
+    transition: background-color .25s;
 }
 
 .task-new-btn {
@@ -14,6 +16,16 @@
     padding: 1em 0;    
     align-items: center;
     justify-items: center;
+}
+
+.task-new-btn:hover, .task-new-btn:active {
+    svg {
+        fill: var(--primary-color-1);
+    }
+
+    .task-new-btn-text {
+        color: var(--primary-color-1);
+    }
 }
 
 .title-error-message {
@@ -43,9 +55,7 @@
 }
 
 .task-new:hover {
-    background-color: #f4f4f4;
-
-    transition: background-color .25s;
+    background-color: #f8f8f8;
 }
 
 .task-new-visible {
