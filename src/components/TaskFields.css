@@ -2,11 +2,13 @@
 .task-form {
     grid-column: span 3;
     column-gap: inherit;
-    row-gap: 1em;
+    row-gap: .25em;
 
     display: grid;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: subgrid;
+
+    
 }
 
 .task-fieldset {
@@ -14,6 +16,11 @@
 
     display: grid;
     grid-template-columns: subgrid;
+}
+
+.task-fieldset {
+    border-top: 1px solid #00000011;
+    padding: 1em 0;
 }
 
 .task-form-icon {
@@ -25,12 +32,19 @@
 .task-form-icon > svg {
     width: 70%;
     height: 70%;
-    fill: var(--font-color-light-3)
+    fill: var(--font-color-light-3);
+
+    transition: fill .25s;
 }
 
 .icon-tag > svg {
     width: 80%;
     height: 80%;
+}
+
+.icon-title > svg {
+    width: 55%;
+    height: 55%;
 }
 
 .icon-title {
@@ -45,11 +59,26 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    row-gap: .5em;
 
     font-size: .9em;
     color: var(--font-color-lighter);
 
-    & textarea {
-        width: 80%;
-    }
+    position: relative;
+}
+
+.task-title-input {
+    align-self: stretch;
+}
+
+.task-field-label-text {
+    transition: color .25s;
+}
+
+.task-fieldset:hover svg, .task-fieldset:active svg {
+    fill: var(--primary-color-1);
+}
+
+.task-fieldset:hover .task-field-label-text, .task-fieldset:active .task-field-label-text {
+    color: var(--primary-color-1);
 }
