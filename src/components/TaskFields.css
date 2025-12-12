@@ -1,0 +1,48 @@
+
+.task-form {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+}
+
+.task-fieldset {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: subgrid;
+    
+}
+
+.task-form-icon {
+    grid-column: 1/2;
+    width: 1.5em;
+    aspect-ratio: 1/1;
+}
+
+.task-form-icon > svg {
+    width: 70%;
+    height: 70%;
+    fill: var(--font-color-light-3)
+}
+
+.icon-tag > svg {
+    width: 80%;
+    height: 80%;
+}
+
+.icon-title {
+    font-size: 1.3em;
+    font-style: bold;
+    color: var(--font-color-light-3);
+}
+
+.task-form-label {
+    grid-column: 2/3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    font-size: .9em;
+    color: var(--font-color-lighter)
+}

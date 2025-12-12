@@ -81,3 +81,19 @@ p, ul, li {
     align-items: center;
     justify-content: center;
 }
+
+fieldset {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: start;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.author-note {
+    font-style: italic;
+    font-size: .9em;
+}
+

@@ -1,0 +1,19 @@
+.text-input {
+    appearance: none;
+    border: 0;
+    font: inherit;
+    color: var(--font-color-1);
+    font-size: inherit;
+    background-color: transparent;
+
+    transition: box-shadow .25s, background-color .25s;
+    border-radius: .25em;
+    padding: .5em .75em;
+}
+
+.text-input:focus, .text-input:focus-visible {
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    box-shadow: 0 0 .2em 0 #1975ff55;
+}

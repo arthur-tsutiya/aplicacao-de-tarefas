@@ -1,12 +1,12 @@
 
 .task-new-input-wrapper {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
     grid-template-columns: auto 1fr;
 }
 
 /*TEMPORARY BELOW*/
-.task-new-title-icon {
+.task-new-icon {
     display: flex;
     width: 1.5em;
     aspect-ratio: 1/1;
@@ -26,6 +26,10 @@
     grid-column: span 2;
     display: grid;
     grid-template-columns: subgrid;
+}
+
+.c2 {
+    min-height: 10em;
 }
 
 

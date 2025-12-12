@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import './TaskNew.css';
-import TaskNewInputs from './TaskNewInputs.js';
+import TaskFields from './TaskFields.js';
 
 export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, expanded}) {
     const [title, setTitle] = useState("");
@@ -57,6 +57,13 @@ export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, e
             </div>
             <div className="task-new-hidden">
                 <div className="task-new-hidden-content">
+                    <TaskFields/>
+                </div>
+            </div>
+        </div>
+    );
+}
+/*
                     <label>
                         Title
                         <input name="task-name" type="text" value={title} onChange={e => setTitle(e.target.value)}/>
@@ -65,11 +72,4 @@ export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, e
                             <button onClick={() => {}} disabled={title.length === 0}>Create Task</button>
                             <button onClick={() => {}}>Cancel</button>
                         </div>
-                    </label>
-                    <TaskNewInputs/>
-                </div>
-            </div>
-        </div>
-    );
-}
-
+                    </label>*/
