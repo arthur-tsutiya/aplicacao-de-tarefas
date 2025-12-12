@@ -1,6 +1,33 @@
+/*
+Color palette ideas
+
+Idea 1:
+#091540 deep navy
+#7692ff cornflower blue
+#abd2fa icy blue
+#3d518c dusk blue
+#1b2cc1 persian blue
+
+Idea 2:
+#919098 rosy granite
+#897c80 ^
+#ba8f95 rosy taupe
+#cab6cd thistle
+#cfbcdf ^
+
+Idea3:
+#495867 Blue slate
+#577399 Glaucous
+#bdd5ea Pale sky
+#f7f7ff ghost white (neutral?)
+#fe5f55 vibrant coral (accent?)
+*/
+
+
+
 :root {
-    --font-color-1: #343434;
-    --font-color-light: #565656;
+    --font-color-1: #464646;
+    --font-color-light: #616161;
     --font-color-lighter: #878787;
     --font-color-light-3: #a1a1a1;
     --font-color-light-4: #b1b1b1;
@@ -38,6 +65,7 @@ p, ul, li {
     margin: 0;
     border: 0;
     padding: 0;
+    color: inherit;
     font: inherit;
     font-size: inherit;
     background-color: transparent;

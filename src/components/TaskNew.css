@@ -4,9 +4,8 @@
 }
 
 .task-new-icon {
-    width: 2em;
+    width: 1.667em;
     aspect-ratio: 1/1;
-    grid-column: 1/2;
 }
 
 .task-new-icon svg {
@@ -33,15 +32,15 @@
 
 .task-new-visible {
     grid-row: 1/2;
-
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    column-gap: 2em;
 }
 
 .task-new-btn {
-    grid-column: 2/3;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    column-gap: 2em;
+    padding: 1em 0;
 }
 
 .task-new-hidden {
