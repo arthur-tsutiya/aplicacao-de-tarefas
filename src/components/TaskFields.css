@@ -1,16 +1,19 @@
 
 .task-form {
+    grid-column: span 3;
+    column-gap: inherit;
+    row-gap: 1em;
+
     display: grid;
     grid-template-rows: repeat(3, auto);
-    grid-template-columns: auto 1fr;
-    gap: 1em;
+    grid-template-columns: subgrid;
 }
 
 .task-fieldset {
-    grid-column: span 2;
+    grid-column: span 3;
+
     display: grid;
     grid-template-columns: subgrid;
-    
 }
 
 .task-form-icon {
@@ -37,12 +40,16 @@
 }
 
 .task-form-label {
-    grid-column: 2/3;
+    grid-column: span 2;
 
     display: flex;
     flex-direction: column;
     align-items: start;
 
     font-size: .9em;
-    color: var(--font-color-lighter)
+    color: var(--font-color-lighter);
+
+    & textarea {
+        width: 80%;
+    }
 }

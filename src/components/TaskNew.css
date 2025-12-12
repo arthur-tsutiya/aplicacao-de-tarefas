@@ -1,3 +1,10 @@
+.task-new {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 2em 1fr 2em;
+    column-gap: 2em;
+}
+
 .title-error-message {
     color: red;
     font-size: 0.75em;
@@ -6,18 +13,22 @@
 .task-new-icon {
     width: 1.667em;
     aspect-ratio: 1/1;
+    grid-column: 1/2;
+}
+
+.task-new-btn-text {
+    grid-column: span 2;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
 }
 
 .task-new-icon svg {
-    width: 60%;
-    height: 60%;
+    width: 70%;
+    height: 70%;
     fill: var(--font-color-lighter);
-}
-
-.task-new {
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: 1fr;
 }
 
 .task-new.expanded {
@@ -32,22 +43,36 @@
 
 .task-new-visible {
     grid-row: 1/2;
+    grid-column: span 3;
+    column-gap: inherit;
+
+    display: grid;
+    grid-template-columns: subgrid;
 }
 
 .task-new-btn {
+    display: grid;
+    grid-template-columns: subgrid;
+    column-gap: inherit;
+    grid-column: span 3;
+    padding: 1em 0;
+    /*
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center; 
-    column-gap: 2em;
-    padding: 1em 0;
+    padding: 1em 0;*/
+    
 }
 
 .task-new-hidden {
     grid-row: 2/3;
+    grid-column: span 3;
+    column-gap: inherit;
 
     display: grid;
     grid-template-rows: 0fr;
+    grid-template-columns: subgrid;
     opacity: 0;
     padding-block: 0;
     padding-inline: 0;
@@ -57,6 +82,11 @@
 
 .task-new-hidden-content {
     overflow: hidden;
+    grid-column: span 3;
+    column-gap: inherit;
+
+    display: grid;
+    grid-template-columns: subgrid;
 }
 
 .task-new.expanded .task-new-hidden{
