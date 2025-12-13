@@ -39,6 +39,9 @@ Idea3:
     --primary-color-2: #5a76e9;
     --primary-color-3: #4967df;
     --primary-color-4: #3c5ad6;
+
+    --input-color-disabled: #e8e8e8;
+    --input-font-color-disabled: #77777d
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -99,8 +102,9 @@ p, ul, li {
 }
 
 .btn-primary:disabled {
-    background-color: #aeaeae;
-    color: #333;
+    background-color: var(--input-color-disabled);
+    color: var(--input-font-color-disabled);
+    cursor:not-allowed;
 }
 
 .center {

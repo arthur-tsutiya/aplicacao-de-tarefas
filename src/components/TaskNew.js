@@ -20,8 +20,8 @@ export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, e
     }
 
     function createTask() {
-        if (title === "") {
-            setErrorMessage("The title must not be empty");
+        if (!title.length) {
+            setErrorMessage("The title must not be empty.");
             return;
         } 
         setErrorMessage(null);
@@ -57,7 +57,8 @@ export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, e
             </div>
             <div className="task-new-hidden">
                 <div className="task-new-hidden-content">
-                    <TaskFields title={title} setTitle={setTitle} onTaskCreate={createTask} expanded={expanded}/>
+                    <TaskFields title={title} setTitle={setTitle} onTaskCreate={createTask} expanded={expanded}
+                    errorMessage={errorMessage}/>
                 </div>
             </div>
         </div>

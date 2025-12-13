@@ -13,6 +13,7 @@
 
 # misc
 /ideas
+/src/to-do.txt
 .DS_Store
 .env.local
 .env.development.local

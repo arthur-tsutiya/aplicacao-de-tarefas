@@ -5,7 +5,7 @@ import EditIcon from './icons/EditIcon.js';
 import TextInput from './TextInput.js';
 import {useState} from 'react';
 
-export default function TaskFields({title, setTitle, onTaskCreate, expanded}) {
+export default function TaskFields({title, setTitle, onTaskCreate, expanded, errorMessage}) {
 
     function submitClick(e) {
         e.preventDefault();
@@ -14,7 +14,7 @@ export default function TaskFields({title, setTitle, onTaskCreate, expanded}) {
 
     return (
         <form className="task-form" onSubmit={submitClick}>
-            <p className="task-field" role="region">
+            <p className="task-field field-upper-border" role="region">
                 <span className="task-form-icon icon-title center">
                     <EditIcon />
                 </span>
@@ -22,9 +22,10 @@ export default function TaskFields({title, setTitle, onTaskCreate, expanded}) {
                     <span className="task-field-label-text">What is the title of your task?</span>
                     <TextInput name="task-title" className="task-title-input" expanded={expanded} title={title}
                     setTitle={setTitle} placeholder="Water the plants..."/>
+                    {errorMessage && <span className="error-message">{errorMessage}</span>}
                 </label>
             </p>
-            <p className="task-field" role="region">
+            <p className="task-field field-upper-border" role="region">
                 <span className="task-form-icon icon-tag center">
                     <TagIcon />
                 </span>
@@ -33,7 +34,7 @@ export default function TaskFields({title, setTitle, onTaskCreate, expanded}) {
                     
                 </label>
             </p>
-            <p className="task-field" role="region">
+            <p className="task-field field-upper-border" role="region">
                 <span className="task-form-icon icon-notes center">
                     <NoteIcon />
                 </span>
@@ -42,9 +43,9 @@ export default function TaskFields({title, setTitle, onTaskCreate, expanded}) {
                     
                 </label>
             </p>
-            <div className="task-form-controls">
+            <div className="task-form-controls field-upper-border">
                 <input type="submit" className="btn task-form-btn-add btn-primary" value="Add task"
-                 tabIndex={expanded ? 0 : -1}/>
+                 tabIndex={expanded ? 0 : -1} disabled={title.length > 0 ? false : true}/>
             </div>
         </form>
     );

@@ -18,10 +18,11 @@
     grid-template-columns: subgrid;
 }
 
-.task-field {
+.field-upper-border {
     border-top: 1px solid #00000011;
     padding: 1em 0;
 }
+
 
 .task-form-icon {
     grid-column: 1/2;

@@ -28,9 +28,9 @@
     }
 }
 
-.title-error-message {
-    color: red;
-    font-size: 0.75em;
+.error-message {
+    color: rgba(255, 49, 49, 0.637);
+    font-size: 0.8em;
 }
 
 .task-new-icon {
