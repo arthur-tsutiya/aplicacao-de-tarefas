@@ -12,6 +12,10 @@ export default function TaskFields({title, setTitle, onTaskCreate, expanded, err
         onTaskCreate();
     }
 
+    function changeTitle(newTitle) {
+        setTitle(newTitle);
+    }
+
     return (
         <form className="task-form" onSubmit={submitClick}>
             <p className="task-field field-upper-border" role="region">
@@ -20,8 +24,8 @@ export default function TaskFields({title, setTitle, onTaskCreate, expanded, err
                 </span>
                 <label className="task-form-label">
                     <span className="task-field-label-text">What is the title of your task?</span>
-                    <TextInput name="task-title" className="task-title-input" expanded={expanded} title={title}
-                    setTitle={setTitle} placeholder="Water the plants..."/>
+                    <TextInput name="task-title" className="task-title-input" expanded={expanded} value={title}
+                    onChange={changeTitle} placeholder="Water the plants..."/>
                     {errorMessage && <span className="error-message">{errorMessage}</span>}
                 </label>
             </p>

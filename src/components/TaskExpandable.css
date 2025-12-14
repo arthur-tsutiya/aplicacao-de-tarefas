@@ -1,7 +1,9 @@
 .task-expandable {
     display: grid;
     grid-template-rows: auto auto;
-    grid-template-columns: 1fr;
+    grid-template-columns: 2em 1fr 2em;
+    column-gap: 1.5em;
+    padding: 0 1.5em;
 
     transition: background-color .25s;
 }
@@ -16,20 +18,28 @@
 
 .task-expandable-visible {
     grid-row: 1/2;
+    grid-column: span 3;
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    column-gap: 2em;
+    grid-template-columns: subgrid;
+    column-gap: inherit;
 }
 
 .task-expandable-hidden {
     grid-row: 2/3;
-    padding-block: 0;
-    padding-inline: 1em;
+    grid-column: span 3;
+    column-gap: inherit;
+    
+    
+    /*padding-inline: 1em;*/
     
     display: grid;
     grid-template-rows: 0fr;
+    grid-template-columns: subgrid;
     opacity: 0;
-    transition: grid-template-rows .25s, opacity .4s, padding-block .25s;
+    padding-block: 0;
+    padding-inline: 0;
+
+    transition: padding-block .25s, grid-template-rows .25s, opacity .5s;
 }
 
 .task-expandable.expanded {
@@ -43,7 +53,12 @@
 }
 
 .task-expandable-hidden-content {
-    overflow: hidden;
+    overflow-y: hidden;
+    grid-column: span 3;
+    column-gap: inherit;
+
+    display: grid;
+    grid-template-columns: subgrid;
 }
 
 .btn-task {
@@ -56,4 +71,11 @@
     justify-content: center;
 
     padding: 1em 0;
+}
+
+.btn-task:hover, .btn-task:active {
+
+    .task-title {
+        color: var(--primary-color-1);
+    }
 }

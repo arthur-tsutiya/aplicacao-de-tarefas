@@ -3,9 +3,12 @@ import CheckmarkButton from './CheckmarkButton.js';
 import StarButton from './StarButton.js';
 import EditButton from './controls/EditButton.js';
 import DeleteButton from './controls/DeleteButton.js';
+import EditIcon from './icons/EditIcon.js';
+import TextInput from './TextInput.js'
+import TextInputStaggered from './forms/TextInputStaggered.js';
 import { useState} from 'react';
 
-export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskDelete, onTaskImportanceToggle,
+export default function TaskExpandable({task, onTaskToggle, onTaskChange, onTaskDelete, onTaskImportanceToggle,
     onTaskSelection, onTaskSelectionEnd, expanded
 }) {
 
@@ -29,6 +32,16 @@ export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskD
         }
     }
 
+    function editTitle(newTitle) {
+        if (!newTitle.length > 0) {
+            return;
+        }
+
+        let newTask = {...task, title: newTitle}
+
+        onTaskChange(newTask);
+    }
+
 
     return (
         <li className={taskClassName}>
@@ -43,7 +56,18 @@ export default function TaskExpandable({task, onTaskToggle, onEditClick, onTaskD
                 </div>
             </div>
             <div className="task-expandable-hidden">
-                <div className="task-expandable-hidden-content"><p>supposed to be hidden</p></div>
+                <div className="task-expandable-hidden-content">
+                    <p className="task-field field-upper-border" role="region">
+                        <span className="task-form-icon icon-title center">
+                            <EditIcon />
+                        </span>
+                        <label className="task-form-label">
+                            <span className="task-field-label-text">What is the title of your task?</span>
+                            <TextInputStaggered name="task-title" className="task-title-input" expanded={expanded} 
+                            value={task.title} onChange={editTitle} validationPredicate={(text) => text.length > 0}/>
+                        </label>
+                    </p>
+                </div>
             </div>
         </li>
         

@@ -66,11 +66,11 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
                 if (status.action === "expand" && task.id === status.id) {
                   return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
                     onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 
-                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} expanded/>;
+                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} onTaskChange={onTaskChange} expanded/>;
                 }
                 return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
                     onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 
-                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask}/>;
+                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} onTaskChange={onTaskChange}/>;
               })
             }
         </ul>
