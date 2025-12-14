@@ -6,13 +6,19 @@ import DeleteButton from './controls/DeleteButton.js';
 import EditIcon from './icons/EditIcon.js';
 import TextInput from './TextInput.js'
 import TextInputStaggered from './forms/TextInputStaggered.js';
-import { useState} from 'react';
+import { useState, useEffect } from 'react';
 
 export default function TaskExpandable({task, onTaskToggle, onTaskChange, onTaskDelete, onTaskImportanceToggle,
-    onTaskSelection, onTaskSelectionEnd, expanded
-}) {
+    onTaskSelection, onTaskSelectionEnd, expanded, moved }) {
+    const [newlyAdded, setNewlyAdded] = useState(moved);
 
     let taskClassName = "task-expandable card";
+
+    useEffect(() => {
+        if (moved) {
+            setNewlyAdded(false);
+        }
+    }, [moved]);
     
     if (task.done) {
         taskClassName += " task-done";
@@ -22,6 +28,9 @@ export default function TaskExpandable({task, onTaskToggle, onTaskChange, onTask
     }
     if (expanded) {
         taskClassName += " expanded";
+    }
+    if (newlyAdded) {
+        taskClassName += " task-initial";
     }
 
     function toggleExpand() {
@@ -51,7 +60,6 @@ export default function TaskExpandable({task, onTaskToggle, onTaskChange, onTask
                     <p className="task-title center">{task.title}</p>
                 </button>
                 <div className="task-buttons">
-                    <DeleteButton onClick={() => onTaskDelete(task.id)} />
                     <StarButton onClick={() => onTaskImportanceToggle(task.id)} toggled={task.important}/>
                 </div>
             </div>
@@ -73,3 +81,4 @@ export default function TaskExpandable({task, onTaskToggle, onTaskChange, onTask
         
     );
 }
+/*<DeleteButton onClick={() => onTaskDelete(task.id)} />;*/

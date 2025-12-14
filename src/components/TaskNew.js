@@ -12,6 +12,7 @@ export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, e
         title: title,
         done: false,
         important: false,
+        moved: true
     }
 
     let className = "task card task-new";

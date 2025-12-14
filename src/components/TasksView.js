@@ -57,20 +57,15 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
 
     return (
       <section className="tasks-view">
-        {status.action === "create" ? 
-        <TaskNew onTaskAddBegin={startCreatingTask} onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} expanded/> : 
-        <TaskNew onTaskAddBegin={startCreatingTask} onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} />}
+        <TaskNew onTaskAddBegin={startCreatingTask} onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} expanded={status.action === "create"}/>
         <ul className="tasks-list">
             {
               tasks.toReversed().map(task => {
-                if (status.action === "expand" && task.id === status.id) {
                   return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
                     onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 
-                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} onTaskChange={onTaskChange} expanded/>;
-                }
-                return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
-                    onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 
-                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} onTaskChange={onTaskChange}/>;
+                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} onTaskChange={onTaskChange} 
+                    expanded={(status.action === "expand" && task.id === status.id)}
+                    moved={task.moved}/>;
               })
             }
         </ul>

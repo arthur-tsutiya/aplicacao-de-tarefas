@@ -4,8 +4,13 @@
     grid-template-columns: 2em 1fr 2em;
     column-gap: 1.5em;
     padding: 0 1.5em;
+    
+    opacity: 1;
+    transform: translateY(0);
 
-    transition: background-color .25s;
+    /*transition: background-color .25s, opacity .25s, translate .25s;*/
+    transition: all .25s;
+
 }
 
 .task-expandable:hover {
@@ -22,6 +27,10 @@
     display: grid;
     grid-template-columns: subgrid;
     column-gap: inherit;
+}
+
+.task-buttons {
+    grid-column: 3/4;
 }
 
 .task-expandable-hidden {
@@ -78,4 +87,9 @@
     .task-title {
         color: var(--primary-color-1);
     }
+}
+
+.task-initial {
+    opacity: 0;
+    transform: translateY(-150%);
 }
