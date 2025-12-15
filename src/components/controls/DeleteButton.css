@@ -9,6 +9,18 @@
     height: 50%;
 }
 
-.btn-delete path {
+.btn-delete svg {
     fill: var(--font-color-light-3);
+}
+
+.btn-delete:hover {
+    svg {
+        fill: var(--primary-color-1);
+    }
+}
+
+.btn-delete:active {
+    svg {
+        fill: var(--primary-color-2);
+    }
 }

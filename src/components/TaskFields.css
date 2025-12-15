@@ -82,6 +82,17 @@
     grid-row: 4/5;
     padding-bottom: .5em;
 
-    display: flex;
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: subgrid;
+    column-gap: inherit;
+}
+
+.task-form-controls {
+    > input {
+        grid-column: 3/4;
+    }
+
+    > button {
+        grid-column: 3/4;
+    }
 }
