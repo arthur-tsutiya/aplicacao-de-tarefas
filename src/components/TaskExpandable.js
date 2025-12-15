@@ -4,19 +4,20 @@ import StarButton from './StarButton.js';
 import EditButton from './controls/EditButton.js';
 import DeleteButton from './controls/DeleteButton.js';
 import EditIcon from './icons/EditIcon.js';
+import TasksIcon from './icons/TasksIcon.js';
 import TextInput from './TextInput.js'
 import TextInputStaggered from './forms/TextInputStaggered.js';
 import { useState, useEffect } from 'react';
 
 export default function TaskExpandable({task, onTaskToggle, onTaskChange, onTaskDelete, onTaskImportanceToggle,
-    onTaskSelection, onTaskSelectionEnd, expanded, moved }) {
-    const [newlyAdded, setNewlyAdded] = useState(moved);
+    onTaskSelection, onTaskSelectionEnd, expanded, moved}) {
 
     let taskClassName = "task-expandable card";
 
     useEffect(() => {
         if (moved) {
-            setNewlyAdded(false);
+            let {moved, ...newTask} = task;
+            onTaskChange(newTask);
         }
     }, [moved]);
     
@@ -29,7 +30,7 @@ export default function TaskExpandable({task, onTaskToggle, onTaskChange, onTask
     if (expanded) {
         taskClassName += " expanded";
     }
-    if (newlyAdded) {
+    if (moved) {
         taskClassName += " task-initial";
     }
 
@@ -75,10 +76,13 @@ export default function TaskExpandable({task, onTaskToggle, onTaskChange, onTask
                             value={task.title} onChange={editTitle} validationPredicate={(text) => text.length > 0}/>
                         </label>
                     </p>
+                    <div className="task-form-controls field-upper-border">
+                        <DeleteButton onClick={() => onTaskDelete(task.id)} />
+                    </div>
                 </div>
             </div>
         </li>
         
     );
 }
-/*<DeleteButton onClick={() => onTaskDelete(task.id)} />;*/
+/*;*/

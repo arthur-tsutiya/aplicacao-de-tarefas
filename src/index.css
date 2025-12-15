@@ -38,10 +38,11 @@ Idea3:
     --primary-color-1: #7692ff;
     --primary-color-2: #5a76e9;
     --primary-color-3: #4967df;
-    --primary-color-4: #3c5ad6;
+    --primary-color-4: #3757d4;
+    --primary-color-5: #2746c2;
 
     --input-color-disabled: #e8e8e8;
-    --input-font-color-disabled: #77777d
+    --input-font-color-disabled: #77777d;
 }
 
 h1,h2,h3,h4,h5,h6 {

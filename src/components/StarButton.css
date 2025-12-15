@@ -28,17 +28,17 @@
 }
 
 .btn-star.btn-star-toggled .btn-star-path {
-    fill: #f3e48f;
-    stroke: #f3e48f;
+    fill: var(--primary-color-1);
+    stroke: var(--primary-color-1);
 }
 
 .btn-star:hover.btn-star-toggled .btn-star-path {
-    fill: #f3e282;
-    stroke: #f3e282;
+    fill: var(--primary-color-2);
+    stroke: var(--primary-color-2);
 }
 
 .btn-star:active.btn-star-toggled .btn-star-path {
-    fill: #f1de72;
-    stroke: #f1de72;
+    fill: var(--primary-color-3);
+    stroke: var(--primary-color-3);
 }
 

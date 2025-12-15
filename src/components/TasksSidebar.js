@@ -5,8 +5,11 @@ export default function TasksSidebar() {
         <section className="tasks-sidebar">
             <nav>
                 <ul>
-                    <li className="tasks-sidebar-btn">
-
+                    <li className="tasks-sidebar-item">
+                        <button>
+                            <span></span>
+                            <span></span>
+                        </button>
                     </li>
                 </ul>
             </nav>

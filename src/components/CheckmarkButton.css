@@ -26,18 +26,18 @@
 }
 
 .checkmark-btn.checked {
-    background-color: var(--green-pastel-1);
-    border-color: var(--green-pastel-1);
+    background-color: var(--primary-color-1);
+    border-color: var(--primary-color-1);
 }
 
 .checkmark-btn:hover.checked {
-    background-color: var(--green-pastel-2);
-    border-color: var(--green-pastel-2);
+    background-color: var(--primary-color-2);
+    border-color: var(--primary-color-2);
 }
 
 .checkmark-btn:active.checked {
-    background-color: var(--green-pastel-3);
-    border-color: var(--green-pastel-3);
+    background-color: var(--primary-color-3);
+    border-color: var(--primary-color-3);
 }
 
 .checkmark-btn.checked .checkmark {
