@@ -2,7 +2,8 @@ import TasksSidebar from './components/TasksSidebar';
 import TasksView from './components/TasksView'; 
 import './Tasks.css';
 import { useState } from 'react';
-
+import { useTasks, useTasksDispatch } from './contexts/TasksProvider.js';
+/*
 const initialTasks = [
     {id: 1, title: 'Buy milk', done: false, important: false},
     {id: 2, title: 'Clean the fridge', done: false, important: false},
@@ -14,8 +15,11 @@ const initialTasks = [
 ]
 
 let nextTaskId = 8;
-
+*/
 export default function Tasks() {
+
+    /*
+
     const [tasks, setTasks] = useState(initialTasks);
 
     function toggleTask(id) {
@@ -66,6 +70,44 @@ export default function Tasks() {
 
     function addTask(newTask) {
         setTasks([...tasks, {...newTask, id: nextTaskId++}]);
+    }
+    */
+   const tasks = useTasks();
+   const tasksDispatch = useTasksDispatch();
+
+    function toggleTask(id) {
+        tasksDispatch({
+            type: "toggle_done",
+            id: id
+        });
+    }
+
+    function toggleTaskImportance(id) {
+        tasksDispatch({
+            type: "toggle_importance",
+            id: id
+        });
+    }
+
+    function editTask(newTask) {
+        tasksDispatch({
+            type: "edit_task",
+            task: newTask
+        });
+    }
+
+    function removeTask(id) {
+        tasksDispatch({
+            type: "remove_task",
+            id: id
+        });
+    }
+
+    function addTask(newTask) {
+        tasksDispatch({
+            type: "add_task",
+            task: newTask
+        });
     }
 
     return (

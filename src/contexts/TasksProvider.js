@@ -1,0 +1,95 @@
+import { useReducer, createContext, useContext } from 'react';
+
+const TasksContext = createContext(null);
+const TasksDispatchContext = createContext(null);
+
+export function TasksProvider({children}) {
+    const [tasks, dispatch] = useReducer(tasksReducer, []);
+
+    return (
+        <TasksContext value={tasks}>
+            <TasksDispatchContext value={dispatch}>
+                {children}
+            </TasksDispatchContext>
+        </TasksContext>
+    );
+}
+
+export function useTasks() {
+    return useContext(TasksContext);
+}
+
+export function useTasksDispatch() {
+    return useContext(TasksDispatchContext);
+}
+
+const initialTasks = [
+    {id: 1, title: 'Buy milk', done: false, important: false},
+    {id: 2, title: 'Clean the fridge', done: false, important: false},
+    {id: 3, title: 'Fix sleeping schedule', done: true, important: false},
+    {id: 4, title: 'Take out the trash', done: false, important: false},
+    {id: 5, title: 'Call mom', done: false, important: false},
+    {id: 6, title: 'Set up appointment', done: false, important: false},
+    {id: 7, title: 'Buy new books', done: true, important: false}
+]
+
+let nextId = 8;
+function tasksReducer(currentState, action) {
+
+    switch(action.type) {
+        case "toggle_done": {
+            let newTasks = currentState.map(task => {
+                if (task.id !== action.id) {
+                    return task;
+                }
+
+                return {...task, done: !task.done};
+            });
+
+            return newTasks;
+        };
+        case "toggle_importance": {
+            let newTasks = currentState.map(task => {
+                if (task.id !== action.id) {
+                    return task;
+                }
+
+                return {...task, important: !task.important};
+            });
+
+            return newTasks;
+        };
+        case "edit_task": {
+            let newTasks = currentState.map(task => {
+                if (task.id === action.task.id) {
+                    return action.task;
+                }
+
+                return task;
+            });
+
+            return newTasks;
+        };
+        case "remove_task": {
+            let newTasks = currentState.filter(task => {
+                if (task.id === action.id) {
+                    return false;
+                }
+
+                return true;
+            });
+
+            return newTasks;
+        };
+        case "add_task": {
+            let newTasks = [{...action.task, id: nextId++}, ...currentState];
+
+            return newTasks;
+        };
+        default: {
+            throw new Error("Error in TaskProvider.js: action not recognized");
+        }
+    }
+
+    
+}
