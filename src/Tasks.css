@@ -1,4 +1,6 @@
 .tasks-wrapper {
     display: grid;
     grid-template: 1fr / auto 1fr;
+    column-gap: 2em;
+    background-color: #f8f8f8;
 }

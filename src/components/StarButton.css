@@ -9,7 +9,7 @@
     height: 70%;
 }
 
-.btn-star-path {
+.btn-star-svg path {
     fill: transparent;
     stroke: var(--font-color-light-3);
     stroke-width: .5em;
@@ -18,26 +18,26 @@
     transition: all .15s, transform .25s;
 }
 
-.btn-star:hover .btn-star-path {
+.btn-star:hover path {
     fill: #00000011;
 }
 
-.btn-star:active .btn-star-path {
+.btn-star:active path {
     fill: #00000022;
     transform: scale(.9) translateX(5%) translateY(5%);
 }
 
-.btn-star.btn-star-toggled .btn-star-path {
+.btn-star.btn-star-toggled path {
     fill: var(--primary-color-1);
     stroke: var(--primary-color-1);
 }
 
-.btn-star:hover.btn-star-toggled .btn-star-path {
+.btn-star:hover.btn-star-toggled path {
     fill: var(--primary-color-2);
     stroke: var(--primary-color-2);
 }
 
-.btn-star:active.btn-star-toggled .btn-star-path {
+.btn-star:active.btn-star-toggled path {
     fill: var(--primary-color-3);
     stroke: var(--primary-color-3);
 }

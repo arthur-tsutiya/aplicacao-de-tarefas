@@ -1,4 +1,52 @@
 .tasks-sidebar {
-    background-color: #eee;
-    min-width: 4em;
+    grid-column: 1/2;
+    background-color: #fff;
+    padding-block: 2em;
+
+    box-shadow: 4px 0px 4px -2px #00000011;
+
+}
+
+.sidebar-list {
+
+    display: grid;
+    grid-template-columns: auto auto 4em;
+    column-gap: 1em;
+}
+
+.sidebar-list-item {
+    grid-column: span 3;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    column-gap: inherit;
+
+    &:hover{
+        background-color: #00000011;
+    }
+}
+
+.sidebar-item-btn {
+    grid-column: span 3;
+        padding: .75em 2em;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    column-gap: inherit;
+
+    align-items: center;
+}
+
+.sidebar-item-icon {
+    width: 1em;
+    aspect-ratio: 1/1;
+    fill: var(--font-color-lighter);
+
+    grid-column: 1/2;
+}
+
+.sidebar-item-text {
+    grid-column: 2/3;
+    text-align: start;
+    white-space: nowrap;
 }
