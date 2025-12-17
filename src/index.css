@@ -40,6 +40,16 @@ Idea3:
     --primary-color-3: #4967df;
     --primary-color-4: #3757d4;
     --primary-color-5: #2746c2;
+    
+    --primary-color-a-1: #7692ff11;
+    --primary-color-a-2: #7692ff22;
+    --primary-color-a-3: #7692ff33;
+    --primary-color-a-4: #7692ff44;
+    --primary-color-a-5: #7692ff55;
+
+    --dark-color-a-1: #00000011;
+    --dark-color-a-2: #00000022;
+    --dark-color-a-3: #00000033;
 
     --input-color-disabled: #e8e8e8;
     --input-font-color-disabled: #77777d;

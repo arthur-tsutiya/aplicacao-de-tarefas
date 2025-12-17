@@ -1,34 +1,38 @@
 .tasks-sidebar {
+    --sidebar-item-space: 2em;
+
     grid-column: 1/2;
     background-color: #fff;
     padding-block: 2em;
 
     box-shadow: 4px 0px 4px -2px #00000011;
-
 }
 
 .sidebar-list {
 
     display: grid;
-    grid-template-columns: auto auto 4em;
-    column-gap: 1em;
+    grid-template-columns: auto auto auto;
+    column-gap: var(--sidebar-item-space);
 }
 
 .sidebar-list-item {
     grid-column: span 3;
-
     display: grid;
     grid-template-columns: subgrid;
     column-gap: inherit;
 
-    &:hover{
-        background-color: #00000011;
+    &:hover {
+        background-color: var(--primary-color-a-1);
+    }
+
+    &:active {
+        background-color: var(--primary-color-a-2);
     }
 }
 
 .sidebar-item-btn {
     grid-column: span 3;
-        padding: .75em 2em;
+    padding: .75em var(--sidebar-item-space);
 
     display: grid;
     grid-template-columns: subgrid;
@@ -50,3 +54,29 @@
     text-align: start;
     white-space: nowrap;
 }
+
+.sidebar-item-number {
+    grid-column: 3/4;
+    font-size: 0.9em;
+}
+
+.selected-item {
+    background-color: var(--primary-color-a-4);
+    
+    &:hover {
+        background-color: var(--primary-color-a-3);
+    }
+
+    &:active {
+        background-color: var(--primary-color-a-2);
+    }
+
+    & svg {
+        fill: var(--primary-color-4);
+    }
+
+    .sidebar-item-text, .sidebar-item-number {
+        color: var(--primary-color-4);
+    }
+}
+

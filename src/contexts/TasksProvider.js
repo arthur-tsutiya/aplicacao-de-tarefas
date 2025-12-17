@@ -3,22 +3,8 @@ import { useReducer, createContext, useContext, useEffect, useRef } from 'react'
 const TasksContext = createContext(null);
 const TasksDispatchContext = createContext(null);
 
-let stateInitialized = false;
-
 export function TasksProvider({children}) {
     const nextIdRef = useRef(null);
-/*
-    const [tasks, dispatch] = useReducer((currentState, action) => tasksReducer(currentState, action, nextIdRef.current), () => {
-        const state = window.localStorage.getItem("tasks");
-        const stateParsed = JSON.parse(state);
-    
-        nextIdRef.current =  0;
-        return [];
-
-        nextIdRef.current = stateParsed.nextId || 0;
-        return stateParsed.tasks || [];
-    } );
-     */
 
     const [tasks, dispatch] = useReducer((currentState, action) => tasksReducer(currentState, action, nextIdRef), [], (initialArgs) => {
         const state = window.localStorage.getItem("state");
@@ -29,24 +15,11 @@ export function TasksProvider({children}) {
         } catch (e) {
             console.error(e);
         }
-        stateInitialized = true;
 
         nextIdRef.current = stateParsed?.nextId || 0;
         return stateParsed?.tasks || initialArgs;       
     });
 
-/*
-    useEffect(() => {
-        if (!stateInitialized) return;
-
-        const toStore = {
-            nextId: nextIdRef?.current,
-            tasks: tasks
-        };
-        console.log(toStore);
-        window.localStorage.setItem("state", JSON.stringify(toStore));
-    }, [tasks]);
-*/
     return (
         <TasksContext value={tasks}>
             <TasksDispatchContext value={dispatch}>
