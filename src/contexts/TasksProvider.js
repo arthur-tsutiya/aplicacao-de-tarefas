@@ -1,11 +1,52 @@
-import { useReducer, createContext, useContext } from 'react';
+import { useReducer, createContext, useContext, useEffect, useRef } from 'react';
 
 const TasksContext = createContext(null);
 const TasksDispatchContext = createContext(null);
 
-export function TasksProvider({children}) {
-    const [tasks, dispatch] = useReducer(tasksReducer, []);
+let stateInitialized = false;
 
+export function TasksProvider({children}) {
+    const nextIdRef = useRef(null);
+/*
+    const [tasks, dispatch] = useReducer((currentState, action) => tasksReducer(currentState, action, nextIdRef.current), () => {
+        const state = window.localStorage.getItem("tasks");
+        const stateParsed = JSON.parse(state);
+    
+        nextIdRef.current =  0;
+        return [];
+
+        nextIdRef.current = stateParsed.nextId || 0;
+        return stateParsed.tasks || [];
+    } );
+     */
+
+    const [tasks, dispatch] = useReducer((currentState, action) => tasksReducer(currentState, action, nextIdRef), [], (initialArgs) => {
+        const state = window.localStorage.getItem("state");
+
+        let stateParsed;
+        try {
+            stateParsed = JSON.parse(state);
+        } catch (e) {
+            console.error(e);
+        }
+        stateInitialized = true;
+
+        nextIdRef.current = stateParsed?.nextId || 0;
+        return stateParsed?.tasks || initialArgs;       
+    });
+
+/*
+    useEffect(() => {
+        if (!stateInitialized) return;
+
+        const toStore = {
+            nextId: nextIdRef?.current,
+            tasks: tasks
+        };
+        console.log(toStore);
+        window.localStorage.setItem("state", JSON.stringify(toStore));
+    }, [tasks]);
+*/
     return (
         <TasksContext value={tasks}>
             <TasksDispatchContext value={dispatch}>
@@ -33,9 +74,10 @@ const initialTasks = [
     {id: 7, title: 'Buy new books', done: true, important: false}
 ]
 
-let nextId = 8;
-function tasksReducer(currentState, action) {
+//let nextId = 8;
 
+function tasksReducer(currentState, action, nextIdRef) {
+    console.log("tasksReducer call with action: ", action);
     switch(action.type) {
         case "toggle_done": {
             let newTasks = currentState.map(task => {
@@ -46,6 +88,7 @@ function tasksReducer(currentState, action) {
                 return {...task, done: !task.done};
             });
 
+            saveToLocalStorage(nextIdRef.current, newTasks);
             return newTasks;
         };
         case "toggle_importance": {
@@ -57,6 +100,7 @@ function tasksReducer(currentState, action) {
                 return {...task, important: !task.important};
             });
 
+            saveToLocalStorage(nextIdRef.current, newTasks);
             return newTasks;
         };
         case "edit_task": {
@@ -68,6 +112,7 @@ function tasksReducer(currentState, action) {
                 return task;
             });
 
+            saveToLocalStorage(nextIdRef.current, newTasks);
             return newTasks;
         };
         case "remove_task": {
@@ -79,17 +124,27 @@ function tasksReducer(currentState, action) {
                 return true;
             });
 
+            saveToLocalStorage(nextIdRef.current, newTasks);
             return newTasks;
         };
         case "add_task": {
-            let newTasks = [{...action.task, id: nextId++}, ...currentState];
+            let newTasks = [{...action.task, id: nextIdRef.current++}, ...currentState];
 
+            saveToLocalStorage(nextIdRef.current, newTasks);
             return newTasks;
         };
         default: {
             throw new Error("Error in TaskProvider.js: action not recognized");
         }
     }
+}
 
-    
+function saveToLocalStorage(nextId, tasks) {
+    const toStore = {
+        nextId: nextId,
+        tasks: tasks
+    };
+
+    /*console.log(toStore);*/
+    window.localStorage.setItem("state", JSON.stringify(toStore));
 }

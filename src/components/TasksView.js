@@ -60,7 +60,7 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
         <TaskNew onTaskAddBegin={startCreatingTask} onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} expanded={status.action === "create"}/>
         <ul className="tasks-list">
             {
-              tasks.toReversed().map(task => {
+              tasks.map(task => {
                   return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
                     onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 
                     onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} onTaskChange={onTaskChange} 

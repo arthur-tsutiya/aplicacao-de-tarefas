@@ -77,7 +77,7 @@ export default function TaskExpandable({task, onTaskToggle, onTaskChange, onTask
                         </label>
                     </p>
                     <div className="task-form-controls field-upper-border">
-                        <DeleteButton onClick={() => onTaskDelete(task.id)} />
+                        <DeleteButton onClick={() => onTaskDelete(task.id)} expanded={expanded}/>
                     </div>
                 </div>
             </div>
