@@ -8,6 +8,7 @@ export default function Tasks() {
     const tasks = useTasks();
     const tasksDispatch = useTasksDispatch();
     const [selectedList, setSelectedList] = useState("all");
+    const [status, setStatus] = useState({});
 
     let selectedTasks = selectedList === "important" ? tasks.filter(task => task.important) : tasks;
 
@@ -50,11 +51,32 @@ export default function Tasks() {
         });
     }
 
+    function startCreatingTask() {
+      setStatus({action: 'create'});
+    }
+
+    function finishCreatingTask() {
+      setStatus({});
+    }
+
+    function expandTask(id) {
+      setStatus({action: 'expand', id: id});
+    }
+
+    function collapseTask() {
+      setStatus({});
+    }
+
     return (
     <main className="main-page tasks-wrapper">
-        <TasksSidebar onListChange={changeList} selectedList={selectedList}/>
+        <TasksSidebar onListChange={(newList) => {
+            if (newList === selectedList) return;
+            changeList(newList);
+            collapseTask();
+        }} selectedList={selectedList} />
         <TasksView tasks={selectedTasks} onTaskToggle={toggleTask} onTaskChange={editTask} onTaskDelete={removeTask} onTaskAdd={addTask}
-        onTaskImportanceToggle={toggleTaskImportance}/>
+        onTaskImportanceToggle={toggleTaskImportance} onTaskAddBegin={startCreatingTask} onTaskAddEnd={finishCreatingTask}
+        onTaskExpand={expandTask} onTaskCollapse={collapseTask} status={status} selectedList={selectedList}/>
     </main>
     );
 }

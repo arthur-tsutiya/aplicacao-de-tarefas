@@ -94,3 +94,7 @@
     opacity: 0;
     transform: translateY(-150%);
 }
+
+.task-form-btn-delete {
+    grid-column: 3/4;
+}

@@ -3,15 +3,18 @@ import { useState } from 'react';
 import './TaskNew.css';
 import TaskFields from './TaskFields.js';
 
-export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, expanded}) {
+export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, expanded, defaultImportant}) {
     const [title, setTitle] = useState("");
+    const [important, setImportant] = useState(defaultImportant);
     const [errorMessage, setErrorMessage] = useState(null);
 
+    /* To fix the default important state, lift it up to Tasks: whenever you change the list, also change the importance
+    , so probably put in the changeList event handler. */
     let newTask = {
         id: null,
         title: title,
         done: false,
-        important: false,
+        important: important,
         moved: true
     }
 
@@ -28,7 +31,7 @@ export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, e
         setErrorMessage(null);
         onTaskAdd(newTask);
         setTitle("");
-        /*onFinishedTaskAdd();*/
+        setImportant(defaultImportant);
     }
 
     function cancelCreateTask() {
@@ -58,20 +61,11 @@ export default function TaskNew({onTaskAddBegin, onTaskAdd, onFinishedTaskAdd, e
             </div>
             <div className="task-new-hidden">
                 <div className="task-new-hidden-content">
-                    <TaskFields title={title} setTitle={setTitle} onTaskCreate={createTask} expanded={expanded}
+                    <TaskFields title={title} setTitle={setTitle} important={important} setImportant={setImportant}
+                     onTaskCreate={createTask} expanded={expanded}
                     errorMessage={errorMessage}/>
                 </div>
             </div>
         </div>
     );
 }
-/*
-                    <label>
-                        Title
-                        <input name="task-name" type="text" value={title} onChange={e => setTitle(e.target.value)}/>
-                        {errorMessage && <p className="title-error-message">{errorMessage}</p>}
-                        <div className="task-edit-buttons">
-                            <button onClick={() => {}} disabled={title.length === 0}>Create Task</button>
-                            <button onClick={() => {}}>Cancel</button>
-                        </div>
-                    </label>*/

@@ -3,9 +3,10 @@ import TagIcon from './icons/TagIcon.js';
 import NoteIcon from './icons/NoteIcon.js';
 import EditIcon from './icons/EditIcon.js';
 import TextInput from './TextInput.js';
+import StarButton from './StarButton.js';
 import {useState} from 'react';
 
-export default function TaskFields({title, setTitle, onTaskCreate, expanded, errorMessage}) {
+export default function TaskFields({title, setTitle, important, setImportant, onTaskCreate, expanded, errorMessage}) {
 
     function submitClick(e) {
         e.preventDefault();
@@ -48,6 +49,13 @@ export default function TaskFields({title, setTitle, onTaskCreate, expanded, err
                 </label>
             </p>
             <div className="task-form-controls field-upper-border">
+                <div className="task-form-controls-extra">
+                    <StarButton className="task-form-btn-important" toggled={important}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setImportant(i => !i);
+                    }}/>
+                </div>
                 <input type="submit" className="btn task-form-btn-add btn-primary" value="Add task"
                  tabIndex={expanded ? 0 : -1} disabled={title.length > 0 ? false : true}/>
             </div>

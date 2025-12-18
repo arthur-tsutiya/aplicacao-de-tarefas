@@ -5,34 +5,20 @@ import TaskNew from './TaskNew.js';
 import TaskExpandable from './TaskExpandable.js';
 import { useState } from 'react';
 
-export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDelete, onTaskAdd, onTaskImportanceToggle}) {
-    const [status, setStatus] = useState({});
-
-    function startCreatingTask() {
-      setStatus({action: 'create'});
-    }
-
-    function finishCreatingTask() {
-      setStatus({});
-    }
-
-    function expandTask(id) {
-      setStatus({action: 'expand', id: id});
-    }
-
-    function collapseTask(id) {
-      setStatus({});
-    }
-
+export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDelete, onTaskAdd, onTaskImportanceToggle, 
+  onTaskAddBegin, onTaskAddEnd, onTaskExpand, onTaskCollapse, status, selectedList
+}) {
+    
     return (
       <section className="tasks-view">
-        <TaskNew onTaskAddBegin={startCreatingTask} onTaskAdd={onTaskAdd} onFinishedTaskAdd={finishCreatingTask} expanded={status.action === "create"}/>
+        <TaskNew onTaskAddBegin={onTaskAddBegin} onTaskAdd={onTaskAdd} onFinishedTaskAdd={onTaskAddEnd}
+        expanded={status.action === "create"} defaultImportant={selectedList === "important"} />
         <ul className="tasks-list">
             {
               tasks.map(task => {
                   return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 
                     onTaskDelete={onTaskDelete} onTaskImportanceToggle={onTaskImportanceToggle} 
-                    onTaskSelection={expandTask} onTaskSelectionEnd={collapseTask} onTaskChange={onTaskChange} 
+                    onTaskSelection={onTaskExpand} onTaskSelectionEnd={onTaskCollapse} onTaskChange={onTaskChange} 
                     expanded={(status.action === "expand" && task.id === status.id)}
                     moved={task.moved}/>;
               })

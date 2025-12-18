@@ -61,14 +61,14 @@
 }
 
 .selected-item {
-    background-color: var(--primary-color-a-4);
+    background-color: var(--primary-color-a-3);
     
     &:hover {
-        background-color: var(--primary-color-a-3);
+        background-color: var(--primary-color-a-2);
     }
 
     &:active {
-        background-color: var(--primary-color-a-2);
+        background-color: var(--primary-color-a-1);
     }
 
     & svg {

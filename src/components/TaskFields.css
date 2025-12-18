@@ -91,8 +91,12 @@
     > input {
         grid-column: 3/4;
     }
-
-    > button {
-        grid-column: 3/4;
-    }
 }
+
+.task-form-controls-extra {
+    grid-column: span 2;
+
+    display: flex;
+    flex-direction: row;
+}
+
