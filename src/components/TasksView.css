@@ -4,7 +4,7 @@
 }
 
 .tasks-view {
-    background-color: #eaeaea;
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     row-gap: 1em;
@@ -29,4 +29,16 @@
 
 .card-btn:active {
     background-color: #dedede;
+}
+
+.no-tasks-message {
+    text-align: center;
+    color: var(--font-color-light);
+    margin-top: 2em;
+}
+
+.tasks-view-heading {
+    color: var(--font-color-light);
+    margin-block: .5em;
+    font-size: 1.5em;
 }
