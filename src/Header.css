@@ -3,12 +3,14 @@
     flex-direction: row;
     align-items: center;
     padding: 0 2em;
+    color: #fff;
 
-    background-color: #efefef;
+    background-color: var(--primary-color-4);
 }
 
 .page-header-logo {
     height: var(--header-logo-height);
+    fill: #fff;
 }
 
 .page-header-logo-link {
@@ -29,10 +31,6 @@
 
 .page-nav .nav-links li {
     margin: 0 1em;
-}
-
-.page-header-logo path{
-    fill: var(--font-color-1);
 }
 
 .page-header-logo-link {

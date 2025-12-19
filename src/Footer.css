@@ -1,11 +1,16 @@
 .page-footer {
-    background-color: #efefef;
+    background-color: var(--primary-color-5);
+    color: #fff;
     display: flex;
     align-items: center;
-    justify-content: start;
-    padding: 1em 2em;
+    justify-content: center;
+    padding: 2em 0em;
 }
 
 .footer-link:hover, .footer-link:focus {
     text-decoration: underline;
+}
+
+.footer-text {
+    font-size: .9em;
 }

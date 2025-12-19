@@ -6,8 +6,7 @@
 .tasks-view {
     background-color: transparent;
     height: calc(100vh - var(--total-header-height));
-    overflow: auto;
-    
+    overflow-Y: auto;
 }
 
 .tasks-view-wrapper {
