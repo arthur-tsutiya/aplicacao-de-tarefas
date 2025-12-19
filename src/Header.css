@@ -2,9 +2,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0.5em 2em;
+    padding: 0 2em;
 
     background-color: #efefef;
+}
+
+.page-header-logo {
+    height: var(--header-logo-height);
+}
+
+.page-header-logo-link {
+    padding-block: var(--header-logo-padding-block);
 }
 
 .page-nav {

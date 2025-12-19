@@ -4,16 +4,12 @@ import './Tasks.css';
 import { useTasks, useTasksDispatch } from './contexts/TasksProvider.js';
 import { useState } from 'react';
 
-export default function Tasks({footerDisplay, setFooterDisplay}) {
+export default function Tasks() {
     const tasks = useTasks();
     const tasksDispatch = useTasksDispatch();
     const [selectedList, setSelectedList] = useState("all");
     const [status, setStatus] = useState({});
-
-    if (footerDisplay) {
-        setFooterDisplay(false);
-    }
-
+    
     let selectedTasks = selectedList === "important" ? tasks.filter(task => task.important) : tasks;
 
     function changeList(newList) {

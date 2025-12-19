@@ -1,12 +1,13 @@
-export default function Home({ footerDisplay, setFooterDisplay }) {
-    
-    if (!footerDisplay) {
-        setFooterDisplay(true);
-    }
+import Footer from './Footer.js';
 
+export default function Home() {
+    
     return (
-        <main className="main-page container">
-            <p>Home page (in construction)</p>
-        </main>
+        <>
+            <main className="main-page container">
+                <p>Home page (in construction)</p>
+            </main>
+            <Footer/>
+        </>
     );
 }

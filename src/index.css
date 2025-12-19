@@ -22,9 +22,6 @@ Idea3:
 #f7f7ff ghost white (neutral?)
 #fe5f55 vibrant coral (accent?)
 */
-
-
-
 :root {
     --font-color-1: #464646;
     --font-color-light: #616161;
@@ -53,6 +50,10 @@ Idea3:
 
     --input-color-disabled: #e8e8e8;
     --input-font-color-disabled: #77777d;
+
+    --header-logo-height: 1.25em;
+    --header-logo-padding-block: 1em;
+    --total-header-height: calc(2 * var(--header-logo-padding-block) + var(--header-logo-height));
 }
 
 h1,h2,h3,h4,h5,h6 {
