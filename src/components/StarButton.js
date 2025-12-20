@@ -1,7 +1,7 @@
 import StarIcon from './icons/StarIcon.js';
 import './StarButton.css';
 
-export default function StarButton({ onClick, toggled}) {
+export default function StarButton({ onClick, toggled, tabIndex}) {
 
     let className = "btn btn-star center";
     if (toggled) {
@@ -9,7 +9,7 @@ export default function StarButton({ onClick, toggled}) {
     }
 
     return (
-        <button className={className} onClick={onClick}>
+        <button className={className} onClick={onClick} tabIndex={tabIndex}>
             <StarIcon className="btn-star-svg center" />
         </button>
     );

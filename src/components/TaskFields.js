@@ -51,6 +51,7 @@ export default function TaskFields({title, setTitle, important, setImportant, on
             <div className="task-form-controls field-upper-border">
                 <div className="task-form-controls-extra">
                     <StarButton className="task-form-btn-important" toggled={important}
+                    tabIndex={expanded ? 0 : -1}
                     onClick={(e) => {
                         e.preventDefault();
                         setImportant(i => !i);

@@ -6,13 +6,16 @@ export default function Header() {
 
     return (
         <header className="page-header">
-            <Link to="/" className="page-header-logo-link">
+            <Link to="/" className="page-header-logo-link" aria-label="Home page">
                 <PageLogo className="page-header-logo"/>
             </Link>
             <nav className="page-nav">
                 <ul className="nav-links">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="tasks">Tasks</Link></li>
+                    <li className="nav-link">
+                        <Link className="btn btn-my-tasks" to="tasks">
+                            My Tasks
+                        </Link>
+                    </li>
                 </ul>
             </nav>
         </header>

@@ -114,22 +114,22 @@ ul {
     box-shadow: 0px .2em 0px 0px #00000033;
 
     transition: all .15s;
-}
 
-.btn-primary:hover {
-    background-color: var(--primary-color-3);
-}
+    &:hover {
+        background-color: var(--primary-color-3);
+    }
 
-.btn-primary:active {
-    background-color: var(--primary-color-2);
-    transform: translateY(.125em);
-    box-shadow: 0px 0px 0px 0px var(--dark-grey-a);
-}
+    &:active {
+        background-color: var(--primary-color-2);
+        transform: translateY(.125em);
+        box-shadow: 0px 0px 0px 0px var(--dark-grey-a);
+    }
 
-.btn-primary:disabled {
-    background-color: var(--input-color-disabled);
-    color: var(--input-font-color-disabled);
-    cursor:not-allowed;
+    &:disabled {
+        background-color: var(--input-color-disabled);
+        color: var(--input-font-color-disabled);
+        cursor:not-allowed;
+    }
 }
 
 .center {

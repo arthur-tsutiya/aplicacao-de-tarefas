@@ -12,10 +12,12 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
 }) {
 
   let heading = "All Tasks";
+  let emptyMessage ="No tasks yet.";
 
   switch(selectedList) {
     case "important": {
       heading = "Important Tasks";
+      emptyMessage = "No important tasks yet.";
       break;
     }
   }
@@ -27,7 +29,7 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
           <TaskNew key={selectedList} onTaskAddBegin={onTaskAddBegin} onTaskAdd={onTaskAdd} onFinishedTaskAdd={onTaskAddEnd}
           expanded={status.action === "create"} defaultImportant={selectedList === "important"} />
           <ul className="tasks-list">
-            { tasks.length === 0 && <p className="no-tasks-message">No tasks yet.</p>}
+            { tasks.length === 0 && <p className="no-tasks-message">{emptyMessage}</p>}
             {
               tasks.map(task => {
                   return <TaskExpandable key={task.id} task={task} onTaskToggle={onTaskToggle} 

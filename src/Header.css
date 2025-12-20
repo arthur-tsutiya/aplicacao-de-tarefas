@@ -37,3 +37,22 @@
     display: flex;
 }
 
+.nav-link .btn-my-tasks {
+    background-color: #fff;
+    color: var(--primary-color-5);
+    border-radius: .4em;
+    padding: calc(var(--header-logo-padding-block) / 2) .75em;
+    position: relative;
+}
+
+.nav-link {
+    transition: transform .15s, opacity .15s;
+
+    &:hover {
+        opacity: .9;
+    }
+
+    &:active {
+        transform: translate(.1em, .1em);
+    }
+}
