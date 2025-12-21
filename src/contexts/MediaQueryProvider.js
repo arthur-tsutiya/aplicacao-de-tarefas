@@ -1,0 +1,42 @@
+import {useState, useRef, useContext, useEffect, createContext} from 'react';
+
+const MediaQueryContext = createContext(null);
+
+export function MediaQueryProvider({children}) {
+    const [mediaQuery, setMediaQuery] = useState("mobile");
+    const mediaQueryRef = useRef(null);
+
+    function changeMediaQuery() {
+        
+
+        if (mediaQueryRef.current.matches) {
+            setMediaQuery("tablet");
+            console.log("media query: tablet");
+        } else {
+            setMediaQuery("mobile");
+            console.log("media query: mobile");
+        }
+    }
+
+    useEffect(() => {
+        if (!mediaQueryRef.current) {
+            mediaQueryRef.current = window.matchMedia("(min-width: 30em)");
+        }
+
+
+        mediaQueryRef.current.addEventListener("change", changeMediaQuery);
+
+        return () => mediaQueryRef.current.removeEventListener("change", changeMediaQuery);
+    }, []);
+
+
+    return (
+        <MediaQueryContext value={mediaQuery}>
+            {children}
+        </MediaQueryContext>
+    );
+}
+
+export function useMediaQuery() {
+    return useContext(MediaQueryContext);
+}

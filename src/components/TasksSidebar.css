@@ -2,6 +2,7 @@
     --sidebar-item-space: 2em;
     --sidebar-btn-margin: .5em;
     --sidebar-exterior: 2em;
+    /*position: absolute;*/
 
     grid-column: 1/2;
     background-color: #fff;

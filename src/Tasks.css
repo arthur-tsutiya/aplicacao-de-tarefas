@@ -5,6 +5,8 @@
     /*column-gap: var(--tasks-column-gap);*/
     column-gap: 0;
     background-color: #f8f8f8;
+
+    /*position: relative;*/
 }
 
 @media (min-width: 30em) {
