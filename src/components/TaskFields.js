@@ -34,19 +34,19 @@ export default function TaskFields({title, setTitle, important, setImportant, on
                 <span className="task-form-icon icon-tag center">
                     <TagIcon />
                 </span>
-                <label className="task-form-label wip">
+                <span className="task-form-label wip">
                     <span className="task-field-label-text wip center">Add Category (WIP)</span>
                     
-                </label>
+                </span>
             </p>
             <p className="task-field field-upper-border" role="region">
                 <span className="task-form-icon icon-notes center">
                     <NoteIcon />
                 </span>
-                <label className="task-form-label wip">
+                <span className="task-form-label wip">
                     <span className="task-field-label-text center">Add Notes (WIP)</span>
                     
-                </label>
+                </span>
             </p>
             <div className="task-form-controls field-upper-border">
                 <div className="task-form-controls-extra">

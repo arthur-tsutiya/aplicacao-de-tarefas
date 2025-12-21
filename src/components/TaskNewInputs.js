@@ -3,6 +3,8 @@ import './TaskNewInputs.css';
 export default function TaskNewInputs() {
     
     return (
+        <p styles={{backgroundColor: "red"}}>Where am I?</p>
+        /*
         <div className="task-new-input-wrapper">
             <div className="task-new-title c1">
                 <span className="task-new-icon i1"></span>
@@ -16,6 +18,6 @@ export default function TaskNewInputs() {
                 <span className="task-new-icon i3"></span>
                 <p className="input-placeholder p3">input here</p>
             </div>
-        </div>
+        </div>*/
     );  
 }

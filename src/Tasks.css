@@ -1,6 +1,14 @@
 .tasks-wrapper {
+    --tasks-column-gap: 1em;
     display: grid;
     grid-template: 1fr / auto 1fr;
-    column-gap: 2em;
+    /*column-gap: var(--tasks-column-gap);*/
+    column-gap: 0;
     background-color: #f8f8f8;
+}
+
+@media (min-width: 30em) {
+    .tasks-wrapper {
+        --tasks-column-gap: 2em;
+    }
 }

@@ -1,0 +1,23 @@
+.btn-hamburger {
+    width: 2.5em;
+    aspect-ratio: 1/1;
+    border-radius: .3em;
+
+    &:hover {
+        background-color: #00000011;
+    }
+
+    &:active {
+        background-color: #00000022;
+    }
+}
+
+.btn-hamburger svg {
+    width: 50%;
+    height: 50%;
+    fill: var(--font-color-lighter);
+}
+
+.btn-hamburger-toggled svg {
+    fill: var(--primary-color-5);
+}
