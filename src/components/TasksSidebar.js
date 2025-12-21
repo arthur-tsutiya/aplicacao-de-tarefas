@@ -31,6 +31,7 @@ export default function TasksSidebar({onListChange, selectedList}) {
                     toggleSidebar("expanded");
                 }
             }}/>
+            <hr className="sidebar-separator .sidebar-separator-controls"/>
             <nav className="tasks-sidebar-nav">
                 <ul className="sidebar-list">
                     <li className={selectedList === "all" ? selectedClasses : defaultClasses}>
@@ -63,7 +64,7 @@ export default function TasksSidebar({onListChange, selectedList}) {
                         </button>
                     </li>
                 </ul>
-                <hr className="sidebar-list-separator"/>
+                <hr className="sidebar-separator"/>
             </nav>
         </section>
     );
