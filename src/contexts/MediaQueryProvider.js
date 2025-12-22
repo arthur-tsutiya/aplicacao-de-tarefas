@@ -11,16 +11,14 @@ export function MediaQueryProvider({children}) {
 
         if (mediaQueryRef.current.matches) {
             setMediaQuery("tablet");
-            console.log("media query: tablet");
         } else {
             setMediaQuery("mobile");
-            console.log("media query: mobile");
         }
     }
 
     useEffect(() => {
         if (!mediaQueryRef.current) {
-            mediaQueryRef.current = window.matchMedia("(min-width: 30em)");
+            mediaQueryRef.current = window.matchMedia("(min-width: 45em)");
         }
 
 

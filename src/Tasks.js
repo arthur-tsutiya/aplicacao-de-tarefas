@@ -2,6 +2,7 @@ import TasksSidebar from './components/TasksSidebar';
 import TasksView from './components/TasksView'; 
 import './Tasks.css';
 import { useTasks, useTasksDispatch } from './contexts/TasksProvider.js';
+import { useMediaQuery } from './contexts/MediaQueryProvider.js';
 import { useState } from 'react';
 
 export default function Tasks() {
@@ -9,8 +10,19 @@ export default function Tasks() {
     const tasksDispatch = useTasksDispatch();
     const [selectedList, setSelectedList] = useState("all");
     const [status, setStatus] = useState({});
+    const [sidebarState, setSidebarState] = useState("expanded");
+    const mediaQuery = useMediaQuery();
+
+    let mainClasses = "main-page tasks-wrapper";
+    if (mediaQuery === "mobile") {
+        mainClasses += " tasks-wrapper-mobile";
+    }
     
     let selectedTasks = selectedList === "important" ? tasks.filter(task => task.important) : tasks;
+
+    function toggleSidebar(newState) {
+        setSidebarState(newState);
+    }
 
     function changeList(newList) {
         setSelectedList(newList);
@@ -68,15 +80,18 @@ export default function Tasks() {
     }
 
     return (
-    <main className="main-page tasks-wrapper">
+    <main className={mainClasses}>
         <TasksSidebar onListChange={(newList) => {
             if (newList === selectedList) return;
             changeList(newList);
             collapseTask();
-        }} selectedList={selectedList} />
+        }} selectedList={selectedList}
+        sidebarState={sidebarState}
+        onSidebarToggle={toggleSidebar} />
         <TasksView tasks={selectedTasks} onTaskToggle={toggleTask} onTaskChange={editTask} onTaskDelete={removeTask} onTaskAdd={addTask}
         onTaskImportanceToggle={toggleTaskImportance} onTaskAddBegin={startCreatingTask} onTaskAddEnd={finishCreatingTask}
-        onTaskExpand={expandTask} onTaskCollapse={collapseTask} status={status} selectedList={selectedList}/>
+        onTaskExpand={expandTask} onTaskCollapse={collapseTask} status={status} selectedList={selectedList} sidebarState={sidebarState}
+        onSidebarToggle={toggleSidebar}/>
     </main>
     );
 }

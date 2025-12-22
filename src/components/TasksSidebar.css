@@ -17,9 +17,23 @@
     column-gap: var(--sidebar-item-space, 2em);
     /*row-gap: 1em;*/
 
-    &.sidebar-collapsed {
+    &.sidebar-collapsed:not(.sidebar-mobile) {
         grid-template-columns: auto 0fr 0fr;
         column-gap: 0;
+    }
+
+    &.sidebar-mobile {
+        position: absolute;
+        height: 100%;
+        z-index: 1;
+    }
+
+    &.sidebar-mobile {
+        transform: translateX(0%);
+    }
+
+    &.sidebar-mobile.sidebar-collapsed {
+        transform: translateX(-100%);
     }
 }
 

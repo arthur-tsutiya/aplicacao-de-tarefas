@@ -2,33 +2,38 @@ import './TasksSidebar.css';
 import TasksIcon from './icons/TasksIcon.js';
 import StarIcon from './icons/StarIcon.js';
 import HamburgerButton from './controls/HamburgerButton.js';
+import { useMediaQuery } from '../contexts/MediaQueryProvider.js';
 import { useTasks } from '../contexts/TasksProvider.js';
 import { useState } from 'react';
 
-export default function TasksSidebar({onListChange, selectedList}) {
-    const [sidebarState, setSidebarState] = useState("expanded");
+export default function TasksSidebar({onListChange, selectedList, sidebarState, onSidebarToggle}) {
     const tasks = useTasks();
-    const importantTasks = tasks.filter(task => task.important);
+    const mediaQuery = useMediaQuery();
 
     const defaultClasses="sidebar-list-item";
     const selectedClasses="sidebar-list-item selected-item";
 
     let sidebarClasses = "tasks-sidebar";
     if (sidebarState === "collapsed") {
-        sidebarClasses += " sidebar-collapsed"
+        sidebarClasses += " sidebar-collapsed";
+    }
+    if (mediaQuery === "mobile") {
+        sidebarClasses += " sidebar-mobile";
+/*
+        if (sidebarState !== "expanded") {
+            toggleSidebar("expanded");
+        }*/
     }
 
-    function toggleSidebar(newState) {
-        setSidebarState(newState);
-    }
+    const importantTasks = tasks.filter(task => task.important);
 
     return (
         <section className={sidebarClasses}>
             <HamburgerButton className="sidebar-expand-btn" toggled={sidebarState === "expanded"} onClick={() => {
                 if (sidebarState === "expanded") {
-                    toggleSidebar("collapsed");
+                    onSidebarToggle("collapsed");
                 } else {
-                    toggleSidebar("expanded");
+                    onSidebarToggle("expanded");
                 }
             }}/>
             <hr className="sidebar-separator .sidebar-separator-controls"/>

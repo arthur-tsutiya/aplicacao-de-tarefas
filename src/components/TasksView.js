@@ -5,11 +5,14 @@ import TaskNew from './TaskNew.js';
 import TaskExpandable from './TaskExpandable.js';
 import TasksIcon from './icons/TasksIcon.js';
 import StarIcon from './icons/StarIcon.js'
+import HamburgerButton from './controls/HamburgerButton.js';
+import { useMediaQuery } from '../contexts/MediaQueryProvider.js';
 import { useState } from 'react';
 
 export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDelete, onTaskAdd, onTaskImportanceToggle, 
-  onTaskAddBegin, onTaskAddEnd, onTaskExpand, onTaskCollapse, status, selectedList
+  onTaskAddBegin, onTaskAddEnd, onTaskExpand, onTaskCollapse, status, selectedList, sidebarState, onSidebarToggle
 }) {
+  const mediaQuery = useMediaQuery();
 
   let heading = "All Tasks";
   let emptyMessage ="No tasks yet.";
@@ -25,7 +28,14 @@ export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDele
     return (
       <section className="tasks-view">
         <div className="tasks-view-wrapper">
-          <h1 className="tasks-view-heading">{heading}</h1>
+          {mediaQuery === "mobile" ?
+          <div className="tasks-view-heading-wrapper">
+            <HamburgerButton onClick={() => {
+              onSidebarToggle("expanded");
+            }}/>
+            <h1 className="tasks-view-heading">{heading}</h1>
+          </div> : 
+          <h1 className="tasks-view-heading">{heading}</h1>}
           <TaskNew key={selectedList} onTaskAddBegin={onTaskAddBegin} onTaskAdd={onTaskAdd} onFinishedTaskAdd={onTaskAddEnd}
           expanded={status.action === "create"} defaultImportant={selectedList === "important"} />
           <ul className="tasks-list">

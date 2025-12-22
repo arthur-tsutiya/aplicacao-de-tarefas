@@ -2,10 +2,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 2em;
+    padding: 0 1em;
     color: #fff;
 
     background-color: var(--primary-color-4);
+}
+
+@media (min-width: 30em) {
+    .page-header {
+        padding: 0 2em;
+    }
 }
 
 .page-header-logo {
@@ -28,11 +34,11 @@
 
     list-style: none;
 }
-
+/*
 .page-nav .nav-links li {
     margin: 0 1em;
 }
-
+*/
 .page-header-logo-link {
     display: flex;
 }
