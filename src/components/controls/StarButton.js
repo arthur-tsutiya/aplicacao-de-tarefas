@@ -1,4 +1,4 @@
-import StarIcon from './icons/StarIcon.js';
+import StarIcon from '../icons/StarIcon.js';
 import './StarButton.css';
 
 export default function StarButton({ onClick, toggled, tabIndex}) {

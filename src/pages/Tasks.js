@@ -1,8 +1,8 @@
-import TasksSidebar from './components/TasksSidebar';
-import TasksView from './components/TasksView'; 
+import TasksSidebar from '../components/TasksSidebar';
+import TasksView from '../components/TasksView'; 
 import './Tasks.css';
-import { useTasks, useTasksDispatch } from './contexts/TasksProvider.js';
-import { useMediaQuery } from './contexts/MediaQueryProvider.js';
+import { useTasks, useTasksDispatch } from '../contexts/TasksProvider.js';
+import { useMediaQuery } from '../contexts/MediaQueryProvider.js';
 import { useState } from 'react';
 
 export default function Tasks() {

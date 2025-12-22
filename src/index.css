@@ -63,6 +63,7 @@ h1,h2,h3,h4,h5,h6 {
 body {
     margin: 0;
     font-size: 16px;
+    font-size: clamp(14px, 1.25vw , 20px);
     line-height: 1.5;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--font-color-1);
@@ -155,5 +156,13 @@ fieldset {
 
 label:not(.wip) {
     cursor: pointer;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: .5em;
+    margin: 0;
+    padding: .25em 1em;
+    box-shadow: 0 .25em .334em 0 #00000011;
 }
 

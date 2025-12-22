@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import Header from './Header.js';
-import Home from './Home.js';
-import Tasks from './Tasks.js';
+import Header from './components/Header.js';
+import Home from './pages/Home.js';
+import Tasks from './pages/Tasks.js';
 
 
 function App() {

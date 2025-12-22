@@ -2,8 +2,8 @@ import './TaskFields.css';
 import TagIcon from './icons/TagIcon.js';
 import NoteIcon from './icons/NoteIcon.js';
 import EditIcon from './icons/EditIcon.js';
-import TextInput from './TextInput.js';
-import StarButton from './StarButton.js';
+import TextInput from './forms/TextInput.js';
+import StarButton from './controls/StarButton.js';
 import {useState} from 'react';
 
 export default function TaskFields({title, setTitle, important, setImportant, onTaskCreate, expanded, errorMessage}) {

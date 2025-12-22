@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import PageLogo from './components/icons/PageLogo.js';
+import PageLogo from '../components/icons/PageLogo.js';
 import './Header.css';
 
 export default function Header() {

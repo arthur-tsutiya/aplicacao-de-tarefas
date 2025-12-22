@@ -1,13 +1,10 @@
 import './TaskExpandable.css';
-import CheckmarkButton from './CheckmarkButton.js';
-import StarButton from './StarButton.js';
-import EditButton from './controls/EditButton.js';
+import CheckmarkButton from './controls/CheckmarkButton.js';
+import StarButton from './controls/StarButton.js';
 import DeleteButton from './controls/DeleteButton.js';
 import EditIcon from './icons/EditIcon.js';
-import TasksIcon from './icons/TasksIcon.js';
-import TextInput from './TextInput.js'
 import TextInputStaggered from './forms/TextInputStaggered.js';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 export default function TaskExpandable({task, onTaskToggle, onTaskChange, onTaskDelete, onTaskImportanceToggle,
     onTaskSelection, onTaskSelectionEnd, expanded, moved}) {

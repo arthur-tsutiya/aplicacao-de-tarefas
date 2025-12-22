@@ -1,13 +1,8 @@
 import './TasksView.css';
-import Task from './Task.js';
-import TaskEdit from './TaskEdit.js';
 import TaskNew from './TaskNew.js';
 import TaskExpandable from './TaskExpandable.js';
-import TasksIcon from './icons/TasksIcon.js';
-import StarIcon from './icons/StarIcon.js'
 import HamburgerButton from './controls/HamburgerButton.js';
 import { useMediaQuery } from '../contexts/MediaQueryProvider.js';
-import { useState } from 'react';
 
 export default function TasksView({tasks, onTaskToggle, onTaskChange, onTaskDelete, onTaskAdd, onTaskImportanceToggle, 
   onTaskAddBegin, onTaskAddEnd, onTaskExpand, onTaskCollapse, status, selectedList, sidebarState, onSidebarToggle
