@@ -10,7 +10,7 @@ export default function Tasks() {
     const tasksDispatch = useTasksDispatch();
     const [selectedList, setSelectedList] = useState("all");
     const [status, setStatus] = useState({});
-    const [sidebarState, setSidebarState] = useState("expanded");
+    const [sidebarState, setSidebarState] = useState("collapsed");
     const mediaQuery = useMediaQuery();
 
     let mainClasses = "main-page tasks-wrapper";
@@ -79,8 +79,14 @@ export default function Tasks() {
       setStatus({});
     }
 
+    function onPageClick() {
+        if (mediaQuery === "mobile" && sidebarState === "expanded") {
+            toggleSidebar("collapsed");
+        }
+    }
+
     return (
-    <main className={mainClasses}>
+    <main className={mainClasses} onClick={onPageClick}>
         <TasksSidebar onListChange={(newList) => {
             if (newList === selectedList) return;
             changeList(newList);

@@ -2,12 +2,10 @@
     --sidebar-item-space: 2em;
     --sidebar-btn-margin: .5em;
     --sidebar-exterior: 2em;
-    /*position: absolute;*/
 
     grid-column: 1/2;
     background-color: #fff;
     padding-block: 1em;
-
 
     box-shadow: 4px 0px 4px -2px #00000011;
 
@@ -15,7 +13,7 @@
     grid-template-rows: min-content min-content min-content;
     grid-template-columns: auto auto auto;
     column-gap: var(--sidebar-item-space, 2em);
-    /*row-gap: 1em;*/
+    transition: transform .15s ease-in-out;
 
     &.sidebar-collapsed:not(.sidebar-mobile) {
         grid-template-columns: auto 0fr 0fr;
@@ -24,24 +22,36 @@
 
     &.sidebar-mobile {
         position: absolute;
-        height: 100%;
-        z-index: 1;
-    }
-
-    &.sidebar-mobile {
+        top: 0em;
+        bottom: 0em;
         transform: translateX(0%);
+        z-index: 1;
     }
 
     &.sidebar-mobile.sidebar-collapsed {
         transform: translateX(-100%);
+        box-shadow: 0;
     }
+}
+
+.sidebar-top-controls {
+    grid-column: span 3;
+    grid-row: 1/2;
+    column-gap: inherit;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    align-items: center;
 }
 
 .sidebar-expand-btn {
     grid-column: 1/2;
-    grid-row: 1/2;
-
     margin-inline: var(--sidebar-btn-margin);
+}
+
+.sidebar-top-controls-label {
+    font-weight: bold;
+    grid-column: 2/3;
 }
 
 .tasks-sidebar-nav {

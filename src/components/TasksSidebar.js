@@ -2,6 +2,7 @@ import './TasksSidebar.css';
 import TasksIcon from './icons/TasksIcon.js';
 import StarIcon from './icons/StarIcon.js';
 import HamburgerButton from './controls/HamburgerButton.js';
+import BackButton from './controls/BackButton.js';
 import { useMediaQuery } from '../contexts/MediaQueryProvider.js';
 import { useTasks } from '../contexts/TasksProvider.js';
 import { useState } from 'react';
@@ -19,29 +20,44 @@ export default function TasksSidebar({onListChange, selectedList, sidebarState, 
     }
     if (mediaQuery === "mobile") {
         sidebarClasses += " sidebar-mobile";
-/*
-        if (sidebarState !== "expanded") {
-            toggleSidebar("expanded");
-        }*/
     }
 
     const importantTasks = tasks.filter(task => task.important);
 
+    function captureClicks(e) {
+        e.stopPropagation();
+    }
+
     return (
-        <section className={sidebarClasses}>
-            <HamburgerButton className="sidebar-expand-btn" toggled={sidebarState === "expanded"} onClick={() => {
-                if (sidebarState === "expanded") {
+        <section className={sidebarClasses} onClick={captureClicks}>
+            <div className="sidebar-top-controls">
+            {mediaQuery === "mobile" ?
+            <BackButton className="sidebar-expand-btn" onClick={
+                () => {
                     onSidebarToggle("collapsed");
-                } else {
-                    onSidebarToggle("expanded");
                 }
-            }}/>
+            }/> :  
+            <HamburgerButton className="sidebar-expand-btn" toggled={sidebarState === "expanded"} onClick={
+                () => {
+                    if (sidebarState === "expanded") {
+                        onSidebarToggle("collapsed");
+                    } else {
+                        onSidebarToggle("expanded");
+                    }
+            }}/> }
+                {sidebarState === "expanded" && <p className="sidebar-top-controls-label">Menu</p>}
+            </div>
             <hr className="sidebar-separator .sidebar-separator-controls"/>
             <nav className="tasks-sidebar-nav">
                 <ul className="sidebar-list">
                     <li className={selectedList === "all" ? selectedClasses : defaultClasses}>
                         <button className="btn sidebar-item-btn"
-                        onClick={() => onListChange("all")}>
+                        onClick={() => {
+                            onListChange("all");
+                            if (mediaQuery === "mobile") {
+                                onSidebarToggle("collapsed");
+                            }
+                        }}>
                             <div className="sidebar-item-icon center">
                                 <TasksIcon />
                             </div>
@@ -55,7 +71,12 @@ export default function TasksSidebar({onListChange, selectedList, sidebarState, 
                     </li>
                     <li className={selectedList === "important" ? selectedClasses : defaultClasses}>
                         <button className="btn sidebar-item-btn" 
-                        onClick={() => onListChange("important")}>
+                        onClick={() => {
+                            onListChange("important");
+                            if (mediaQuery === "mobile") {
+                                onSidebarToggle("collapsed");
+                            }
+                        }}>
                             <div className="sidebar-item-icon center">
                                 <StarIcon />
                             </div>

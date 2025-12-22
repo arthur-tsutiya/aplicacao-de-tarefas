@@ -1,4 +1,4 @@
-.btn-hamburger {
+.btn-back {
     width: 2.5em;
     aspect-ratio: 1/1;
     border-radius: .3em;
@@ -12,12 +12,8 @@
     }
 }
 
-.btn-hamburger svg {
+.btn-back svg {
     width: 50%;
     height: 50%;
     fill: var(--font-color-lighter);
-}
-
-.btn-hamburger-toggled svg {
-    fill: var(--primary-color-3);
 }

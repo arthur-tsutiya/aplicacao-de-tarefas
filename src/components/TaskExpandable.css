@@ -2,15 +2,21 @@
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto 1fr auto;
-    column-gap: 1.5em;
-    padding: 0 1.5em;
+    column-gap: 1em;
+    padding: 0 1em;
 
     opacity: 1;
     transform: translateY(0);
 
-    /*transition: background-color .25s, opacity .25s, translate .25s;*/
-    transition: all .25s;
+    transition: background-color .25s, opacity .25s, transform .25s;
 
+}
+
+@media(min-width: 30em) {
+    .task-expandable {
+        column-gap: 1.5em;
+        padding: 0 1.5em;
+    }
 }
 
 .task-expandable:hover {
