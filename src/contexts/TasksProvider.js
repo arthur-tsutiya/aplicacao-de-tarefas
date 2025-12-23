@@ -50,7 +50,6 @@ const initialTasks = [
 //let nextId = 8;
 
 function tasksReducer(currentState, action, nextIdRef) {
-    console.log("tasksReducer call with action: ", action);
     switch(action.type) {
         case "toggle_done": {
             let newTasks = currentState.map(task => {
