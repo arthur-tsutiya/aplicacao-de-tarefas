@@ -36,7 +36,7 @@ export default function TasksSidebar({onListChange, selectedList, sidebarState, 
                 () => {
                     onSidebarToggle("collapsed");
                 }
-            }/> :  
+            } tabIndex={(mediaQuery === "mobile" && sidebarState==="collapsed") ? -1 : 0}/> :  
             <HamburgerButton className="sidebar-expand-btn" toggled={sidebarState === "expanded"} onClick={
                 () => {
                     if (sidebarState === "expanded") {
@@ -57,7 +57,7 @@ export default function TasksSidebar({onListChange, selectedList, sidebarState, 
                             if (mediaQuery === "mobile") {
                                 onSidebarToggle("collapsed");
                             }
-                        }}>
+                        }} tabIndex={(mediaQuery === "mobile" && sidebarState === "collapsed") ? -1 : 0}>
                             <div className="sidebar-item-icon center">
                                 <TasksIcon />
                             </div>
@@ -76,7 +76,7 @@ export default function TasksSidebar({onListChange, selectedList, sidebarState, 
                             if (mediaQuery === "mobile") {
                                 onSidebarToggle("collapsed");
                             }
-                        }}>
+                        }} tabIndex={(mediaQuery === "mobile" && sidebarState === "collapsed") ? -1 : 0}>
                             <div className="sidebar-item-icon center">
                                 <StarIcon />
                             </div>
