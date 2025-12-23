@@ -2,10 +2,17 @@
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto 1fr auto;
-    column-gap: 1.5em;
-    padding: 0 1.5em;
+    column-gap: 1em;
+    padding: 0 1em;
 
     transition: background-color .25s;
+}
+
+@media (min-width: 30em) {
+    .task-new {
+        column-gap: 1.5em;
+        padding: 0 1.5em;    
+    }
 }
 
 .task-new-btn {

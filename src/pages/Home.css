@@ -1,0 +1,52 @@
+.hero-section {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+}
+
+.home-page {
+    margin-block: 2em;
+}
+
+.hero-section-text {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+
+    padding-block: 2em;
+}
+
+.hero-text-link {
+    color: var(--primary-color-5);
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.hero-section-image {
+    border-radius: 1em;
+    background-color: #efefef;
+    aspect-ratio: 1/1;
+    align-self: stretch;
+}
+
+@media (min-width: 45em) {
+    .hero-section {
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3em;
+    }
+
+    .hero-section-text {
+        grid-column: 1/2;
+        grid-row: span 2;
+    }
+
+    .hero-section-image {
+        grid-column: 2/3;
+        grid-row: span 2;
+    }
+}
+
+

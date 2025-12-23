@@ -69,13 +69,21 @@ body {
     color: var(--font-color-1);
 }
 
-a:any-link {
+a {
     text-decoration: none;
     color: inherit;
 }
 
 .container {
-    margin: 0 2em;
+    padding: 0 1em;
+    margin: 0 auto;
+    max-width: 80em;
+}
+
+@media (min-width: 30em) {
+    .container {
+        padding: 0 2em;
+    }
 }
 
 p, ul, li {
@@ -89,7 +97,7 @@ ul {
 }
 
 #root {
-    min-height: 100dvh;
+    min-height: 100vh;
 
     display: grid;
     grid-template-rows: auto 1fr auto;
