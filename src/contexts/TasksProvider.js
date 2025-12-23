@@ -20,6 +20,10 @@ export function TasksProvider({children}) {
         return stateParsed?.tasks || initialArgs;       
     });
 
+    useEffect(() => {
+        saveToLocalStorage(nextIdRef.current, tasks);
+    }, [tasks]);
+
     return (
         <TasksContext value={tasks}>
             <TasksDispatchContext value={dispatch}>
@@ -60,7 +64,6 @@ function tasksReducer(currentState, action, nextIdRef) {
                 return {...task, done: !task.done};
             });
 
-            saveToLocalStorage(nextIdRef.current, newTasks);
             return newTasks;
         };
         case "toggle_importance": {
@@ -72,7 +75,6 @@ function tasksReducer(currentState, action, nextIdRef) {
                 return {...task, important: !task.important};
             });
 
-            saveToLocalStorage(nextIdRef.current, newTasks);
             return newTasks;
         };
         case "edit_task": {
@@ -84,7 +86,6 @@ function tasksReducer(currentState, action, nextIdRef) {
                 return task;
             });
 
-            saveToLocalStorage(nextIdRef.current, newTasks);
             return newTasks;
         };
         case "remove_task": {
@@ -96,13 +97,11 @@ function tasksReducer(currentState, action, nextIdRef) {
                 return true;
             });
 
-            saveToLocalStorage(nextIdRef.current, newTasks);
             return newTasks;
         };
         case "add_task": {
             let newTasks = [{...action.task, id: nextIdRef.current++}, ...currentState];
 
-            saveToLocalStorage(nextIdRef.current, newTasks);
             return newTasks;
         };
         default: {
@@ -117,6 +116,7 @@ function saveToLocalStorage(nextId, tasks) {
         tasks: tasks
     };
 
-    /*console.log(toStore);*/
+    console.log("to store: ", toStore);
+
     window.localStorage.setItem("state", JSON.stringify(toStore));
 }
