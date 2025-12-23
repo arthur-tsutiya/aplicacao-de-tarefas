@@ -12,7 +12,7 @@ export default function Header() {
             <nav className="page-nav">
                 <ul className="nav-links">
                     <li className="nav-link">
-                        <Link className="btn btn-my-tasks" to="tasks">
+                        <Link className="btn btn-my-tasks" to="add-tasks">
                             My Tasks
                         </Link>
                     </li>

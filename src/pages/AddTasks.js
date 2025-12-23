@@ -1,11 +1,11 @@
 import TasksSidebar from '../components/TasksSidebar';
 import TasksView from '../components/TasksView'; 
-import './Tasks.css';
+import './AddTasks.css';
 import { useTasks, useTasksDispatch } from '../contexts/TasksProvider.js';
 import { useMediaQuery } from '../contexts/MediaQueryProvider.js';
 import { useState } from 'react';
 
-export default function Tasks() {
+export default function AddTasks() {
     const tasks = useTasks();
     const tasksDispatch = useTasksDispatch();
     const [selectedList, setSelectedList] = useState("all");

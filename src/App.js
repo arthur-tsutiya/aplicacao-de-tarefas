@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header.js';
 import Home from './pages/Home.js';
-import Tasks from './pages/Tasks.js';
+import AddTasks from './pages/AddTasks.js';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <Header/>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/tasks" element={<Tasks />}/>
+          <Route path="/add-tasks" element={<AddTasks />}/>
           <Route path="*" element={<p>404 not found</p>}/>
         </Routes>
     </BrowserRouter>

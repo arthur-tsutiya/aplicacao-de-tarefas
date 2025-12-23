@@ -15,7 +15,7 @@ export default function Home() {
                         <h2 className="hero-subheading hero-heading">The best place to manage and keep track of your day-to-day tasks.</h2>
                         <p className="hero-text">
                             To start, click {' '}
-                            <Link className="hero-text-link" to="/tasks">here</Link>
+                            <Link className="hero-text-link" to="/add-tasks">here</Link>
                         </p>
                     </div>
                     {mediaQuery !== "mobile" && <div className="hero-section-image center">
