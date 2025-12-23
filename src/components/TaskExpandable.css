@@ -109,3 +109,7 @@
     text-decoration:line-through;
     color: var(--font-color-lighter);
 }
+
+.task-title {
+    text-align: start;
+}

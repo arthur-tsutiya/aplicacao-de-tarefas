@@ -29,6 +29,7 @@
     background-color: #efefef;
     aspect-ratio: 1/1;
     align-self: stretch;
+    max-height: 80vh;
 }
 
 @media (min-width: 45em) {
