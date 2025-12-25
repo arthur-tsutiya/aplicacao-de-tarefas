@@ -116,7 +116,5 @@ function saveToLocalStorage(nextId, tasks) {
         tasks: tasks
     };
 
-    console.log("to store: ", toStore);
-
     window.localStorage.setItem("state", JSON.stringify(toStore));
 }
